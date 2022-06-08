@@ -1,0 +1,42 @@
+<h1>Your liked Doggo's</h1>
+<% likes.forEach( matches=> { %>
+    <% if (matches.like==true){ %>
+        <section class="dog-profile">
+            <div class="dog-profile__img-container">
+                <img src="/img/dogs/<%= matches.image %>" alt="doggo">
+            </div>
+            <div class="dog-profile__content">
+                <h2>
+                    <%= matches.name %>
+                </h2>
+                <div>
+                    <p>
+                        <%= matches.about %>
+                    </p>
+                    <ul>
+                        <li>
+                            <span>Age:</span>
+                            <%= matches.age %> years
+                        </li>
+                        <li>
+                            <span>Gender:</span>
+                            <%= matches.gender %>
+                        </li>
+                        <li>
+                            <span>Size:</span>
+                            <%= matches.size %>
+                        </li>
+                    </ul>
+                    <form action="/remove-favorite" method="post">
+                        <button name="remove" type="submit" value="<%= matches._id %>" class="btn-like">Unlike</button>
+                    </form>
+                    <form action="/delete" method="POST">
+                        <button name="delete" type="submit" id="delete" value="<%= matches._id %>">
+                            Adopt!
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <% } %>
+            <% }) %>

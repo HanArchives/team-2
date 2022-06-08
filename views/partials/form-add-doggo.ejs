@@ -1,0 +1,47 @@
+<form action="/doggo/add" enctype="multipart/form-data" method="post" class="form-add-doggo">
+    <img class="img-add-doggo" src="img/ui/mainpom.png" alt="Main pop logo">
+    <label class="label">Upload image</label>
+    <input class="upload" type="file" name="image" required>
+    <div>
+        <label for="name" class="label">Name</label>
+        <textarea name="name" id="" cols="30" rows="2"></textarea>
+    </div>
+    <p>Gender</p>
+    <div class="questionnaire-row--add-doggo">
+        <div><input name="gender" value="female" type="checkbox" id="female" />
+            <label for="female">Female</label>
+        </div>
+        <div><input name="gender" value="male" type="checkbox" id="male" />
+            <label for="male">Male</label>
+        </div>
+    </div>
+    <p>Age</p>
+    <div class="questionnaire-row--add-doggo">
+        <div><input name="age" value="zero-five" type="checkbox" id="zero-five" />
+            <label for="zero-five">0 - 5</label>
+        </div>
+        <div><input name="age" value="six-ten" type="checkbox" id="six-ten" />
+            <label for="six-ten">6 - 10</label>
+        </div>
+        <div><input name="age" value="ten-plus" type="checkbox" id="ten-plus" />
+            <label for="ten-plus">10+</label>
+        </div>
+    </div>
+    <p>Size?</p>
+    <div class="questionnaire-row--add-doggo">
+        <div><input name="size" value="small" type="checkbox" id="small" />
+            <label for="small">Small</label>
+        </div>
+        <div><input name="size" value="medium" type="checkbox" id="medium" />
+            <label for="medium">Medium</label>
+        </div>
+        <div><input name="size" value="large" type="checkbox" id="large" />
+            <label for="large">Large</label>
+        </div>
+    </div>
+    <div>
+        <label for="about" class="label">Description</label>
+        <textarea name="about" id="" cols="30" rows="10"></textarea>
+    </div>
+    <button class="add-submit">Add doggo</button>
+</form>

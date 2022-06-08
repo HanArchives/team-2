@@ -1,0 +1,62 @@
+<form class="form-survey">
+    <img class="img-add-doggo" src="img/ui/age.png" alt="Main pop logo">
+    <p>Thank you for wanting to give a rescue dog a home! Please fill in these questions and we will
+        contact you.</p>
+
+    <div>
+        <label for="address" class="label">Address: </label>
+        <textarea id="adress" rows="2" cols="40" placeholder="Adress"></textarea>
+
+        <label for="city" class="label">City: </label>
+        <textarea id="city" rows="2" cols="40" placeholder="Town"></textarea>
+
+        <label for="postcode" class="label">Postcode: </label>
+        <textarea id="postcode" rows="2" cols="40" placeholder="Postcode"></textarea>
+
+    </div>
+
+    <div>
+        <label id="phone" class="label" for="phone">Phone: </label>
+        <textarea id="phone" rows="2" cols="40" placeholder="Phone number"></textarea>
+
+        <label id="email" class="label" for="email">Email: </label>
+        <textarea id="email" rows="2" cols="40" placeholder="postcode"></textarea>
+    </div>
+
+    <label for="age" class="label">What is your age?</label>
+
+    <div class="questionnaire-row--add-doggo">
+        <div><input type="checkbox" id="u18" name="age" value="1" required>
+            <label for="u18">Under 18</label>
+        </div>
+
+        <div><input type="checkbox" id="18" name="age" value="2" required>
+            <label for="18">18 - 30</label>
+        </div>
+
+        <div><input type="checkbox" id="31" name="age" value="3" required>
+            <label for="31">31 - 50</label>
+        </div>
+
+        <div><input type="checkbox" id="51" name="age" value="3" required>
+            <label for="51">51 and older</label>
+        </div>
+    </div>
+
+    <div>
+        <label for="housing" class="label">What type of housing do you live in?</label>
+        <select id="housing">
+            <option disabled selected value>Select an option</option>
+            <option value="apt">Appartment</option>
+            <option value="house">House</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="textarea" class="label">How do you prepare yourself?</label>
+        <textarea id="textarea" rows="10" cols="50" placeholder="I prepare.."></textarea>
+    </div>
+
+    <button type="submit" id="submit-survey">Submit</button>
+</form>

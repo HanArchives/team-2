@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('../components/head'); %>
+
+    <body>
+        <%- include('../components/header'); %>
+            <main>
+                <div class="loading">
+                    <h2>Processing...</h2>
+                    <span class="loader"></span>
+                    <img src="./img/ui/medium.png" alt="Loading dog">
+                </div>
+
+                <%- include('../partials/form-survey'); %>
+            </main>
+            <%- include('../components/footer'); %>
+                <script src="scripts/menu.js"></script>
+                <script src="scripts/animate-api.js"></script>
+    </body>
+
+</html>
