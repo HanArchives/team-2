@@ -1,5 +1,10 @@
 const express = require('express');
-const connectDB = require('./config/db.js');
+const connectDB = require('./config/db');
+const passport = require('passport');
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:3000/team-2');
+// let db = mongoose.connection;
+// const flash = require('connnect-flash');
 
 const path = require('path');
 const app = express();
@@ -18,6 +23,7 @@ const liking = require('./routes/liking');
 const filter = require('./routes/filter');
 const deleteDogg = require('./routes/delete');
 const add = require('./routes/add');
+const users = require('./routes/users');
 
 app.set('view engine', 'ejs');
 app.set('views, view');
@@ -31,6 +37,17 @@ app.use('/', liking);
 app.use('/', filter);
 app.use('/', deleteDogg);
 app.use('/', add);
+app.use('/users', users);
+
+// passport
+// require('./config/passport')(passport);
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.get('*', function (req, res, next) {
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 app.use((req, res) => {
   res.status(404).render('pages/404');
