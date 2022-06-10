@@ -22,6 +22,7 @@ const deleteDogg = require('./routes/delete');
 const add = require('./routes/add');
 const users = require('./routes/users');
 const register = require('./routes/register');
+const login = require('./routes/login');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -48,6 +49,7 @@ app.use('/', deleteDogg);
 app.use('/', add);
 
 app.use('/register', register);
+app.use('/login', login);
 app.use('/users', users);
 
 app.use((req, res) => {

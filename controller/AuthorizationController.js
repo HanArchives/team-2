@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
-const { redirect } = require('express/lib/response');
 
 let session;
 
@@ -25,8 +24,24 @@ const register = async (req, res) => {
   console.log(session);
 };
 
-const login = () => {
-  console.log('nu zijn we bij login');
+const login = async (req, res) => {
+  try {
+    const user = await db
+      .collection('users')
+      .findOne({ username: req.body.username.toLowerCase() });
+
+    if (user) {
+      const compare = await bcrypt.compare(req.body.password, user.password);
+
+      if (compare) {
+        console.log('Succes!');
+      } else {
+        console.log('Wrong username!');
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
