@@ -22,6 +22,7 @@ const upload = multer({
 
 // add dog //
 add.post('/doggo/add', upload.single('image'), async (req, res, next) => {
+  console.log(req.body.size);
   let doggo = {
     image: req.file.filename,
     name: req.body.name,

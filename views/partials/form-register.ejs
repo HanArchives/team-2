@@ -1,12 +1,15 @@
 <section class="register">
     <h2>Register</h2>
     <img class="img-add-doggo" src="img/ui/mainpom.png" alt="Main pom logo">
-    <form action="/users/register" method="post" enctype="multipart/form-data">
+    <form action="/register" method="post">
         <label class="label" for="firstname">First name:</label>
-        <input type="text" name="firstname" placeholder="First name">
+        <input type="text" name="firstname" id="firstname" placeholder="First name">
 
         <label class="label" for="lastname">Last name:</label>
         <input type="text" name="lastname" placeholder="Last name">
+
+        <label class="label" for="username">Last name:</label>
+        <input type="text" name="username" placeholder="Username">
 
         <label class="label" for="email">Email:</label>
         <input type="email" name="email" placeholder="Email">

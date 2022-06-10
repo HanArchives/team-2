@@ -11,57 +11,57 @@ router.get('/register', function (req, res) {
 });
 
 // register process
-router.post('/register', function (req, res) {
-  const username = req.body.username;
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
-  const email = req.body.email;
-  const password = req.body.password;
-  const password2 = req.body.password2;
+// router.post('/register', function (req, res) {
+//   const username = req.body.username;
+//   const firstname = req.body.firstname;
+//   const lastname = req.body.lastname;
+//   const email = req.body.email;
+//   const password = req.body.password;
+//   const password2 = req.body.password2;
 
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('firstname', 'Firstname is required').notEmpty();
-  req.checkBody('lastname', 'Lastname is required').notEmpty();
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('email', 'Email is not valid').isEmail();
-  req.checkBody('password', 'Password is required').notEmpty();
-  req
-    .checkBody('password2', 'Passwords do not match')
-    .equals(req.body.password);
+//   req.checkBody('username', 'Username is required').notEmpty();
+//   req.checkBody('firstname', 'Firstname is required').notEmpty();
+//   req.checkBody('lastname', 'Lastname is required').notEmpty();
+//   req.checkBody('email', 'Email is required').notEmpty();
+//   req.checkBody('email', 'Email is not valid').isEmail();
+//   req.checkBody('password', 'Password is required').notEmpty();
+//   req
+//     .checkBody('password2', 'Passwords do not match')
+//     .equals(req.body.password);
 
-  let errors = req.validationErrors();
+//   let errors = req.validationErrors();
 
-  if (errors) {
-    res.render('register', {
-      errors: errors,
-    });
-  } else {
-    let newUser = new User({
-      username: username,
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password,
-    });
-    bcrypt.genSalt(10, function (err, salt) {
-      bcrypt.hash(newUser.password, salt, function (err, hash) {
-        if (err) {
-          console.log(err);
-        }
-        newUser.password = hash;
-        newUser.save(function (err) {
-          if (err) {
-            console.log(err);
-            return;
-          } else {
-            req.flash('success, you are now registered and can login');
-            res.redirect('users/login'); // ipv users -> pages?
-          }
-        });
-      });
-    });
-  }
-});
+//   if (errors) {
+//     res.render('register', {
+//       errors: errors,
+//     });
+//   } else {
+//     let newUser = new User({
+//       username: username,
+//       firstname: firstname,
+//       lastname: lastname,
+//       email: email,
+//       password: password,
+//     });
+//     bcrypt.genSalt(10, function (err, salt) {
+//       bcrypt.hash(newUser.password, salt, function (err, hash) {
+//         if (err) {
+//           console.log(err);
+//         }
+//         newUser.password = hash;
+//         newUser.save(function (err) {
+//           if (err) {
+//             console.log(err);
+//             return;
+//           } else {
+//             req.flash('success, you are now registered and can login');
+//             res.redirect('users/login'); // ipv users -> pages?
+//           }
+//         });
+//       });
+//     });
+//   }
+// });
 
 router.get('/login', function (req, res) {
   res.render('pages/login');

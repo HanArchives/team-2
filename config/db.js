@@ -49,7 +49,7 @@ module.exports = connectDB;
 
 // module.exports = connectDB;
 
-// testttttt 2/////////////////////////////////////
+// testttttt 2
 // const mongoose = require('mongoose');
 
 // const connectDB = async () => {
