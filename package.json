@@ -20,11 +20,13 @@
   "homepage": "https://github.com/HanArchives/bloktech#readme",
   "dependencies": {
     "array-back": "^6.2.2",
+    "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
+    "express-session": "^1.17.3",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.6",
     "multer": "^1.4.4",
