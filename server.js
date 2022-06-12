@@ -1,6 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
-// const passport = require('passport');
+const passport = require('passport');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -55,6 +55,12 @@ app.use('/register', register);
 app.use('/login', login);
 // app.use('/users', users);
 
+//passport config
+require('./config/passport')(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// 404
 app.use((req, res) => {
   res.status(404).render('pages/404');
 });
