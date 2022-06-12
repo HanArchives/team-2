@@ -24,6 +24,7 @@ const add = require('./routes/add');
 // const users = require('./routes/users');
 const register = require('./routes/register');
 const login = require('./routes/login');
+// const map = require('./routes/map'); // kan worden ge activeerd wanneer de kaart is toegevoegd
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -49,6 +50,7 @@ app.use('/unlike', unlike);
 app.use('/deleteDog', deleteDog);
 app.use('/add', add);
 app.use('/filter', filter);
+// app.use('/map', map); // kan worden ge activeerd wanneer de kaart is toegevoegd
 app.use('/register', register);
 app.use('/login', login);
 // app.use('/users', users);

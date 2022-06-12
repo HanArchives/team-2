@@ -34,6 +34,10 @@ pages
     res.render('pages/find-doggo');
   })
 
+  .get('/map', (req, res) => {
+    res.render('pages/map');
+  })
+
   .get('/likes', async (req, res) => {
     const likes = await db
       .collection('matches')
