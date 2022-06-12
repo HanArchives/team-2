@@ -18,7 +18,7 @@ app.listen(port, () => {
 const pages = require('./routes/pages');
 const liking = require('./routes/liking');
 const filter = require('./routes/filter');
-const deleteDogg = require('./routes/delete');
+const deleteDog = require('./routes/delete');
 const add = require('./routes/add');
 // const users = require('./routes/users');
 const register = require('./routes/register');
@@ -44,8 +44,8 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/', pages);
 app.use('/', liking);
-app.use('/', deleteDogg);
 
+app.use('/deleteDog', deleteDog);
 app.use('/add', add);
 app.use('/filter', filter);
 app.use('/register', register);
