@@ -1,6 +1,4 @@
-////////////////////////
 // DELETE DOG FROM DB //
-////////////////////////
 const { ObjectId } = require('mongodb');
 
 const deleteDog = async (req, res) => {

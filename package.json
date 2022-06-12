@@ -1,7 +1,7 @@
 {
-  "name": "bloktech",
+  "name": "team-2",
   "version": "1.0.0",
-  "description": "Package for blocktech",
+  "description": "Package for school assignment team project: Team-2",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HanArchives/bloktech.git"
+    "url": "git+https://github.com/HanArchives/team-2.git"
   },
-  "author": "Han Ossef",
+  "author": "Han Ossef - Jonna Visser - Nowy Meepho - Thije",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HanArchives/bloktech/issues"
+    "url": "https://github.com/HanArchives/team-2/issues"
   },
-  "homepage": "https://github.com/HanArchives/bloktech#readme",
+  "homepage": "https://github.com/HanArchives/team-2#readme",
   "dependencies": {
     "array-back": "^6.2.2",
     "bcrypt": "^5.0.1",

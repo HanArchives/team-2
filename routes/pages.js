@@ -6,15 +6,15 @@ const pages = express.Router();
 
 pages
   // Index page //
-  .get('/', (req, res) => {
-    res.render('pages/index');
+  .get('/home', (req, res) => {
+    res.render('pages/home');
   })
   // Match page //
   .get('/match', (req, res) => {
     res.render('pages/match');
   })
   // Login page //
-  .get('/login', (req, res) => {
+  .get('/', (req, res) => {
     res.render('pages/login');
   })
   // Register page //

@@ -1,6 +1,4 @@
-////////////////////////////
 // Form Filter find doggo //
-////////////////////////////
 const arrayify = require('array-back'); // make a single string an array
 
 const filter = async (req, res) => {

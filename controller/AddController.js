@@ -1,7 +1,3 @@
-////////////////////////
-// Add Doggo + Multer //
-////////////////////////
-
 // add dog //
 const add = async (req, res, next) => {
   let doggo = {

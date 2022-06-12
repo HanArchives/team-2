@@ -1,6 +1,3 @@
-/////////////////
-// Liking page //
-/////////////////
 const express = require('express');
 const router = express.Router();
 const like = require('../controller/LikeController');
