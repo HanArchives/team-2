@@ -16,7 +16,8 @@ app.listen(port, () => {
 
 // Routes //
 const pages = require('./routes/pages');
-const liking = require('./routes/liking');
+const like = require('./routes/liking');
+const unlike = require('./routes/unliking');
 const filter = require('./routes/filter');
 const deleteDog = require('./routes/delete');
 const add = require('./routes/add');
@@ -43,8 +44,8 @@ app.set('views, view');
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/', pages);
-app.use('/', liking);
-
+app.use('/like', like);
+app.use('/unlike', unlike);
 app.use('/deleteDog', deleteDog);
 app.use('/add', add);
 app.use('/filter', filter);

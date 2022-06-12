@@ -27,7 +27,7 @@
                             <%= matches.size %>
                         </li>
                     </ul>
-                    <form action="/remove-favorite" method="post">
+                    <form action="/unlike" method="post">
                         <button name="remove" type="submit" value="<%= matches._id %>" class="btn-like">Unlike</button>
                     </form>
                     <form action="/deleteDog" method="POST">

@@ -32,6 +32,18 @@ pages
   // Find doggo page //
   .get('/find-doggo', (req, res) => {
     res.render('pages/find-doggo');
+  })
+
+  .get('/likes', async (req, res) => {
+    const likes = await db
+      .collection('matches')
+      .find({
+        like: true,
+      })
+      .toArray();
+    res.render('pages/likes', {
+      likes,
+    });
   });
 
 module.exports = pages;
