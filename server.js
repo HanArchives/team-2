@@ -1,6 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const passport = require('passport');
+// const passport = require('passport');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,13 +14,13 @@ app.listen(port, () => {
   console.log(`Example app listening on  http://localhost:${port}`);
 });
 
-// Middleware //
+// Routes //
 const pages = require('./routes/pages');
 const liking = require('./routes/liking');
 const filter = require('./routes/filter');
 const deleteDogg = require('./routes/delete');
 const add = require('./routes/add');
-const users = require('./routes/users');
+// const users = require('./routes/users');
 const register = require('./routes/register');
 const login = require('./routes/login');
 
@@ -44,13 +44,13 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/', pages);
 app.use('/', liking);
-app.use('/', filter);
 app.use('/', deleteDogg);
-app.use('/', add);
 
+app.use('/add', add);
+app.use('/filter', filter);
 app.use('/register', register);
 app.use('/login', login);
-app.use('/users', users);
+// app.use('/users', users);
 
 app.use((req, res) => {
   res.status(404).render('pages/404');
