@@ -1,3 +1,4 @@
+// register and login //
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
@@ -19,7 +20,7 @@ const register = async (req, res) => {
 
   session = req.session;
   session.email = req.body.email;
-  res.redirect('/');
+  res.redirect('/home');
 
   console.log(session);
 };

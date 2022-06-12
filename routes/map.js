@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const like = require('../controller/LikeController');
+const map = require('../controller/MapController');
 
-router.post('/', like.like);
+router.post('/', map.map);
 
 module.exports = router;
