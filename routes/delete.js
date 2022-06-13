@@ -1,16 +1,7 @@
-////////////////////////
-// DELETE DOG FROM DB //
-////////////////////////
 const express = require('express');
-const { ObjectId } = require('mongodb');
-const deleteDogg = express.Router();
+const router = express.Router();
+const deleteDog = require('../controller/DeleteController');
 
-deleteDogg.post('/delete', async (req, res) => {
-  await db.collection('matches').deleteOne({
-    _id: ObjectId(req.body.delete),
-  });
+router.post('/', deleteDog.deleteDog);
 
-  res.redirect('/redirect');
-});
-
-module.exports = deleteDogg;
+module.exports = router;

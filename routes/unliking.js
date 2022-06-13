@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const like = require('../controller/LikeController');
+const unlike = require('../controller/UnlikeController');
 
-router.post('/', like.like);
+router.post('/', unlike.unlike);
 
 module.exports = router;

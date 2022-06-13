@@ -6,15 +6,15 @@ const pages = express.Router();
 
 pages
   // Index page //
-  .get('/', (req, res) => {
-    res.render('pages/index');
+  .get('/home', (req, res) => {
+    res.render('pages/home');
   })
   // Match page //
   .get('/match', (req, res) => {
     res.render('pages/match');
   })
   // Login page //
-  .get('/login', (req, res) => {
+  .get('/', (req, res) => {
     res.render('pages/login');
   })
   // Register page //
@@ -32,6 +32,22 @@ pages
   // Find doggo page //
   .get('/find-doggo', (req, res) => {
     res.render('pages/find-doggo');
+  })
+
+  .get('/map', (req, res) => {
+    res.render('pages/map');
+  })
+
+  .get('/likes', async (req, res) => {
+    const likes = await db
+      .collection('matches')
+      .find({
+        like: true,
+      })
+      .toArray();
+    res.render('pages/likes', {
+      likes,
+    });
   });
 
 module.exports = pages;
