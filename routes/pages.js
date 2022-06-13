@@ -10,9 +10,9 @@ pages
     res.render('pages/home');
   })
   // Match page //
-  .get('/match', (req, res) => {
-    res.render('pages/match');
-  })
+  // .get('/match', (req, res) => {
+    // res.render('pages/match');
+  // })
   // Login page //
   .get('/', (req, res) => {
     res.render('pages/login');
@@ -33,6 +33,11 @@ pages
   .get('/find-doggo', (req, res) => {
     res.render('pages/find-doggo');
   })
+
+    // Edit user page //
+    // .get('/edit', (req, res) => {
+    //   res.render('pages/edit-profile');
+    // })
 
   .get('/map', (req, res) => {
     res.render('pages/map');
