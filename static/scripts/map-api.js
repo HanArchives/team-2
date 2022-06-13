@@ -111,7 +111,7 @@ var polygon = L.polygon([
 polygon.bindPopup("Ga naar Vondelpark")
     .addEventListener('click', e =>
     {
-        window.location.href = `${window.location.origin}/overzicht?park=Vondelpark`
+        window.location.href = `${window.location.origin}/match`
     });
 /****OOSTERPARK****/
 var polygon = L.polygon([
@@ -142,7 +142,7 @@ var polygon = L.polygon([
 polygon.bindPopup("Ga naar Oosterpark")
     .addEventListener('click', e =>
     {
-        window.location.href = `${window.location.origin}/overzicht?park=Oosterpark`
+        window.location.href = `${window.location.origin}/match`
     });
 /****WESTERPARK****/
 var polygon = L.polygon([
@@ -187,5 +187,5 @@ var polygon = L.polygon([
 polygon.bindPopup("Ga naar Westerpark")
     .addEventListener('click', e =>
     {
-        window.location.href = `${window.location.origin}/overzicht?park=Westerpark`
+        window.location.href = `${window.location.origin}/match`
     });
