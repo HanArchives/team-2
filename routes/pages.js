@@ -10,9 +10,9 @@ pages
     res.render('pages/home');
   })
   // Match page //
-  .get('/match', (req, res) => {
-    res.render('pages/match');
-  })
+  // .get('/match', (req, res) => {
+  //   res.render('pages/match');
+  // })
   // Login page //
   .get('/', (req, res) => {
     res.render('pages/login');
