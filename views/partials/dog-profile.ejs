@@ -25,6 +25,9 @@
                         <%= match.size %>
                     </li>
                 </ul>
+                <p>
+                    Shelter: <%= match.shelter %>
+                </p>
                 <form action="/like" method="post">
                     <button name="like" type="submit" value="<%= match._id %>" class="btn-like">Like</button>
                 </form>
