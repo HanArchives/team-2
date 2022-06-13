@@ -58,7 +58,7 @@ function getUserLocationAndSetMap() {
 window.removeEventListener('load', getUserLocationAndSetMap);
 window.addEventListener('load', getUserLocationAndSetMap);
 
-/****VONDELPARK****/
+/****VONDEL****/
 var polygon = L.polygon([
   [52.35636188129635, 4.854871821755217],
   [52.360101380791214, 4.8698913052360275],
@@ -111,12 +111,10 @@ var polygon = L.polygon([
   [52.354592486499925, 4.855606629173169],
   [52.35640998111026, 4.854812663037852],
 ]).addTo(map);
-polygon
-  .bindPopup('Go to Vondelpark dog shelter')
-  .addEventListener('click', (e) => {
-    window.location.href = `${window.location.origin}/shelter-overview?shelter=Vondelpark`;
-  });
-/****OOSTERPARK****/
+polygon.bindPopup('Go to Vondel dog shelter').addEventListener('click', (e) => {
+  window.location.href = `${window.location.origin}/shelter-overview?shelter=Vondel`;
+});
+/****OOSTER****/
 var polygon = L.polygon([
   [52.36053591833311, 4.91589796022504],
   [52.36076507495321, 4.916971571177306],
@@ -142,12 +140,10 @@ var polygon = L.polygon([
   [52.3595475008343, 4.916552213106264],
   [52.36053097827726, 4.915903355997164],
 ]).addTo(map);
-polygon
-  .bindPopup('Go to Oosterpark dog shelter')
-  .addEventListener('click', (e) => {
-    window.location.href = `${window.location.origin}/shelter-overview?shelter=Oosterpark`;
-  });
-/****WESTERPARK****/
+polygon.bindPopup('Go to Ooster dog shelter').addEventListener('click', (e) => {
+  window.location.href = `${window.location.origin}/shelter-overview?shelter=Ooster`;
+});
+/****WESTER****/
 var polygon = L.polygon([
   [52.388550265219756, 4.847348328843289],
   [52.38866601573259, 4.850071858387191],
@@ -187,8 +183,6 @@ var polygon = L.polygon([
   [52.386613725940144, 4.847398216364156],
   [52.38855480582557, 4.847348521891699],
 ]).addTo(map);
-polygon
-  .bindPopup('Go to Westerpark dog shelter')
-  .addEventListener('click', (e) => {
-    window.location.href = `${window.location.origin}/shelter-overview?shelter=Westerpark`;
-  });
+polygon.bindPopup('Go to Wester dog shelter').addEventListener('click', (e) => {
+  window.location.href = `${window.location.origin}/shelter-overview?shelter=Wester`;
+});
