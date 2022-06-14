@@ -39,14 +39,18 @@ pages
   })
 
   .get('/likes', async (req, res) => {
-    const likes = await db
-      .collection('matches')
-      .find({
-        like: true,
-      })
-      .toArray();
+    const user = await db
+      .collection('users')
+      .findOne('62a34746a919f8b0d2f3adcd');
+    const likes = await db.collection('matches').find({}, {}).toArray();
+    const userDog = likes.filter((dog) =>
+      user.dog_id.includes(String(dog._id))
+    );
+
     res.render('pages/likes', {
       likes,
+      userDog,
+      user,
     });
   });
 
