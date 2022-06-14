@@ -23,6 +23,7 @@ const add = require('./routes/add');
 const edit = require('./routes/edit');
 const register = require('./routes/register');
 const login = require('./routes/login');
+const logout = require('./routes/logout');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -51,6 +52,7 @@ app.use('/match', match);
 app.use('/edit', edit);
 app.use('/register', register);
 app.use('/login', login);
+app.use('/logout', logout);
 
 //passport config
 require('./config/passport')(passport);
