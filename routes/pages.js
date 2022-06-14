@@ -48,7 +48,7 @@ pages
 
   .get('/likes', async (req, res) => {
     const user = await db.collection('users').findOne({
-      firstname: 'Han',
+      firstname: 'thije',
     });
     const likes = await db.collection('matches').find().toArray();
     const userDog = likes.filter((dog) =>
