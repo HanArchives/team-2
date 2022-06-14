@@ -7,6 +7,7 @@ const add = async (req, res, next) => {
     age: req.body.age,
     size: req.body.size,
     about: req.body.about,
+    shelter: req.body.shelter,
     like: false,
   };
   // ADD TO DB

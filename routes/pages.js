@@ -9,10 +9,6 @@ pages
   .get('/home', (req, res) => {
     res.render('pages/home');
   })
-  // Match page //
-  .get('/match', (req, res) => {
-    res.render('pages/match');
-  })
   // Login page //
   .get('/', (req, res) => {
     res.render('pages/login');
@@ -34,8 +30,20 @@ pages
     res.render('pages/find-doggo');
   })
 
+    // Edit user page //
+    // .get('/edit', (req, res) => {
+    //   res.render('pages/edit-profile');
+    // })
+
   .get('/map', (req, res) => {
     res.render('pages/map');
+  })
+
+  .get('/shelter-overview', async (req, res) => {
+    const query = { shelter: req.query.shelter };
+    const dogs = await db.collection('matches').find(query).toArray();
+
+    res.render('pages/match', { matches: dogs });
   })
 
   .get('/likes', async (req, res) => {
