@@ -5,7 +5,6 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const session = require('express-session');
-// const bodyParser = require('body-parser');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
