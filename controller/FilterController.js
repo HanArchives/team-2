@@ -1,7 +1,7 @@
 // Form Filter find doggo //
 const arrayify = require('array-back'); // make a single string an array
 
-const filter = async (req, res) => {
+const match = async (req, res) => {
   // $in selects the documents where the value of a field equals any value in the specified array.
   const queryGender = { gender: { $in: arrayify(req.body.gender) } };
   const querySize = { size: { $in: arrayify(req.body.size) } };
@@ -13,5 +13,5 @@ const filter = async (req, res) => {
 };
 
 module.exports = {
-  filter: filter,
+  match: match,
 };

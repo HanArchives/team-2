@@ -1,35 +1,38 @@
 <section class="dog-profile">
-    <% matches.forEach(function(matches) { %>
+    <% matches.forEach(function(match) { %>
         <div class="dog-profile__img-container">
-            <img src="/img/dogs/<%= matches.image %>" alt="doggo">
+            <img src="/img/dogs/<%= match.image %>" alt="doggo">
         </div>
         <div class="dog-profile__content">
             <h2>
-                <%= matches.name %>
+                <%= match.name %>
             </h2>
             <div>
                 <p>
-                    <%= matches.about %>
+                    <%= match.about %>
                 </p>
                 <ul>
                     <li>
                         <span>Age:</span>
-                        <%= matches.age %> years
+                        <%= match.age %> years
                     </li>
                     <li>
                         <span>Gender:</span>
-                        <%= matches.gender %>
+                        <%= match.gender %>
                     </li>
                     <li>
                         <span>Size:</span>
-                        <%= matches.size %>
+                        <%= match.size %>
                     </li>
                 </ul>
+                <p>
+                    Shelter: <%= match.shelter %>
+                </p>
                 <form action="/like" method="post">
-                    <button name="like" type="submit" value="<%= matches._id %>" class="btn-like">Like</button>
+                    <button name="like" type="submit" value="<%= match._id %>" class="btn-like">Like</button>
                 </form>
                 <form action="/deleteDog" method="POST">
-                    <button name="delete" type="submit" id="delete" value="<%= matches._id %>">
+                    <button name="delete" type="submit" id="delete" value="<%= match._id %>">
                         Adopt!
                     </button>
                 </form>
