@@ -9,3 +9,23 @@ const edit = async (req, res) => {
 module.exports = {
     edit: edit,
 };
+
+
+// .post('/'); async (req, res) => {
+    
+//     await db.collection('users').replaceOne(
+//         {
+//             _id: ObjectId(req.body.update),
+//         },
+//         {
+//             'firstname ': req.body.firstname,
+//             'lastname': req.body.lastname,
+//             'username': req.body.username,
+//             'email': req.body.email,
+//             'password': req.body.password,
+//         },
+//         {}
+//     );
+
+//     res.redirect('/');
+// });
