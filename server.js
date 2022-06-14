@@ -20,6 +20,7 @@ const unlike = require('./routes/unliking');
 const match = require('./routes/match');
 const deleteDog = require('./routes/delete');
 const add = require('./routes/add');
+const edit = require('./routes/edit');
 const register = require('./routes/register');
 const login = require('./routes/login');
 
@@ -47,6 +48,7 @@ app.use('/unlike', unlike);
 app.use('/deleteDog', deleteDog);
 app.use('/add', add);
 app.use('/match', match);
+app.use('/edit', edit);
 app.use('/register', register);
 app.use('/login', login);
 
