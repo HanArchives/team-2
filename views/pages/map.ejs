@@ -1,14 +1,31 @@
 <!doctype html>
 <html lang="en">
 
-<%- include('../components/head'); %>
+<%- include('../components/headmap'); %>
 
     <body>
         <%- include('../components/header'); %>
             <main>
                 <h1>Adopt a dog on location!</h1>
                 <!-- hier komt HMTL voor de map // Jonna-->
+                <ul>
+                    <li>
+                        <div id="map" class="hidden" style="height:480px;"></div>
+                    </li>
+                    <li>
+                        <div id="dropdown">
+                            <button class="dropbtn">Choose your shelter</button>
+                            <div class="dropdown-content">
+                                <a href="shelter-overview?shelter=Vondel">Vondel Shelter</a>
+                                <a href="shelter-overview?shelter=Ooster">Ooster Shelter</a>
+                                <a href="shelter-overview?shelter=Wester">Wester Shelter</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </main>
+            <script src="scripts/map-or-dropdown.js" type="text/javascript"></script>
+            <script src="scripts/map-api.js" type="text/javascript"></script>
             <%- include('../components/footer'); %>
                 <script src="scripts/menu.js"></script>
                 <script src="scripts/animate-api.js"></script>
