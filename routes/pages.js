@@ -30,10 +30,10 @@ pages
     res.render('pages/find-doggo');
   })
 
-    // Edit user page //
-    // .get('/edit', (req, res) => {
-    //   res.render('pages/edit-profile');
-    // })
+  // Edit user page //
+  // .get('/edit', (req, res) => {
+  //   res.render('pages/edit-profile');
+  // })
 
   .get('/map', (req, res) => {
     res.render('pages/map');
@@ -47,19 +47,15 @@ pages
   })
 
   .get('/likes', async (req, res) => {
-    const user = await db
-      .collection('users')
-      .findOne('62a34746a919f8b0d2f3adcd');
-    const likes = await db.collection('matches').find({}, {}).toArray();
+    const user = await db.collection('users').findOne({
+      firstname: 'Han',
+    });
+    const likes = await db.collection('matches').find().toArray();
     const userDog = likes.filter((dog) =>
       user.dog_id.includes(String(dog._id))
     );
 
-    res.render('pages/likes', {
-      likes,
-      userDog,
-      user,
-    });
+    res.render('pages/likes', { userDog });
   });
 
 module.exports = pages;
