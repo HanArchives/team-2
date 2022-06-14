@@ -1,3 +1,4 @@
+/* eslint-disable no-redeclare */
 // initial map setup
 var userCoords = [52.336300948670285, 4.883351168595792];
 var map = L.map('map').setView(userCoords, 13);
