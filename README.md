@@ -2,19 +2,26 @@
 <img src="/static/img/ui/pawdoption2.png" alt="PawDoption" width="100%" height="auto">
 
 ## About this project
-This school project is about building a matching application that is build with front-end and back-end together as a team. Before this as an induvidual we had to build a feature. This was just part of the application. You van check the original feature repository for the filter feature in action [feature](https://github.com/HanArchives/bloktech). Now it's on us to work as a team and make a whole rounded application.
+This school project is about building a matching application that is build with front-end and back-end together as a team. Before this, as an induvidual we had to build a feature. This was just part of the application. Now it's on us to work as a team and make a whole rounded application.
+
+We merged the following features:
+* Han: Login, register, add, matches filter and delete features.
+* Nowy: Like and Unlike features. 
+* Jonna: Map and shelter filter features.
+* Thije: User profile and update profile features.
 
 ### Concept and Feature 🐶
 <img src="/static/img/ui/size1.png" alt="PawDoption" width="100%" height="auto">
-This concept is about users that want to adopt a dog based on their preferences. 
+This concept is about users that want to adopt a dog or add a dog as a shelter. 
+
 * The user can check some questions and based on the answers there will be a list of dogs that match the user preferences. This is though either a form or a map.
 * The user can also like a dog. The liked dog will be seen in the favorite list. 
 * The user is also able to remove the like from the favorite list.
-* The user can login and log out
 * The user can register
+* The user can login and log out
 * The user can update their profile
 * The user can also add a dog to the database. 
-* And delete a dog from the database when the user wants to adopt a dog. 
+* The user can delete a dog from the database when the user wants to adopt a dog. 
 
 ## Installation
 
@@ -23,7 +30,7 @@ If you are interested in cloning this project, go to a file with the terminal an
 
 1. Clone my repository:
 ```
-git clone https://github.com/hanarchives/bloktech
+git clone git@github.com:HanArchives/team-2.git
 ```
 2. To run this application you need to install some packages. The first one is: NPM
 ```
@@ -65,10 +72,10 @@ npm -v #
 * session
 
 ## ⚙️ We used the following topics
-* passport
-* error handlers
-* nodemailer
-* Compressor 
+* Han: [Passport](https://github.com/HanArchives/team-2/wiki/)
+* Jonna: [Error Handlers](https://github.com/HanArchives/team-2/wiki/)
+* Nowy: [Nodemailer](https://github.com/HanArchives/team-2/wiki/)
+* Thije: [Compressor](https://github.com/HanArchives/team-2/wiki/)
 
 ### ✅ Start
 Congratulations! The last step to run this application is to run the following line in your terminal:
@@ -77,7 +84,7 @@ npm run dev
 ```
 
 ## 🗃️ Database
-We worked with MongoDB for a database. If you want to read more about the database and the structure please read [application](https://github.com/HanArchives/bloktech/wiki//structure) and [database](https://github.com/HanArchives/bloktech/wiki//database) structure in Han's wiki of my previous feature.  
+We worked with MongoDB for a database. If you want to read more about the database and the structure please read  [database](https://github.com/HanArchives/team-2/wiki) structure in our wiki.  
 ## 📚 Documentation
 Checkout the [wiki](https://github.com/HanArchives/team-2/wiki) for full doumentation and research we did for this project. You can also see our most important commits.
 
