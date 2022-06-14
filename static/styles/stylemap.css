@@ -258,46 +258,49 @@ path {
 DROPDOWN
 ***************************************/
 .dropbtn {
-  background-color: #9c625b;
-  color: white;
-  padding: 30px;
-  font-size: 20px;
+  background-color: var(--bg-color-button-secondary);
   border: none;
+  color: white;
   cursor: pointer;
+  font-size: 20px;
+  padding: 30px;
   text-transform: uppercase;
 }
 
 .dropdown-content {
-  display: none;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
   border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  min-width: 160px;
   text-align: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  font-size: 20px;
   box-shadow: 0px 0px 8px 0px #512924;
+  color: white;
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  padding: 12px 16px;
   padding-bottom: 15px;
   padding-top: 15px;
-  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: var(--bg-color-button);
 }
 
 #dropdown:hover .dropdown-content {
-  display: block;
+  visibility: visible;
 }
 
 #dropdown:hover .dropbtn {
-  background-color: #bca8a6;
+  background-color: var(--bg-color-button);
 }
 
 /*************************************
@@ -307,16 +310,12 @@ PROGRESSIVE ENHANCEMENT
   display: none;
 }
 ul {
-  list-style-type: none;
   display: block;
-  padding-inline-start: 0;
-  z-index: -10;
-}
-
-li::marker {
   list-style-type: none;
+  padding-inline-start: 0;
 }
 
 main {
   text-align: center;
 }
+
