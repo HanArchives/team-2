@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('../components/head'); %>
+
+    <body>
+        <%- include('../components/header'); %>
+            <main>
+                
+
+                <form action="/edit" method="POST">
+                    
+                <section class="register">
+                    <h2>Edit your profile</h2>
+                    <img class="img-add-doggo" src="img/ui/mainpom.png" alt="Main pom logo">
+                    
+                    <section class="dog-profile">
+                            <fieldset>
+                                <label for="firstname">Firstname:</label>
+                                <input type="text" name="firstname" id="firstname" value="<%= user.firstname %>">
+                            </fieldset>
+                            <fieldset>
+                                <label for="lastname">Lastname:</label>
+                                <input type="text" name="lastname" id="lastname" value="<%= user.lastname %>">
+                            </fieldset>
+                            <fieldset>
+                                <label for="username">Username:</label>
+                                <input type="text" name="username" id="username" value="<%= user.username %>">
+                            </fieldset>
+                            <fieldset>
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" id="email" value="<%= user.email %>">
+                            </fieldset>
+                            <fieldset>
+                                <label for="firstname">Password:</label>
+                                <input type="password" name="password" id="password" value="<%= user.firstname %>">
+                            </fieldset>
+                        
+
+                        <button name="edit" type="submit" id="edit" value="<%= user._id %>"> Update</button>
+
+                                    
+                           
+                    </section>
+                    
+                </form>   
+            </main>
+            <%- include('../components/footer'); %>
+                <script src="scripts/animate-api.js"></script>
+                <script src="scripts/menu.js"></script>
+    </body>
+
+</html>
