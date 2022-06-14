@@ -6,26 +6,26 @@ const edit = async (req, res) => {
     res.render('pages/edit-profile', { user });
 }
 
-module.exports = {
-    edit: edit,
+const update = async (req, res) => {
+    
+    const user = await db.collection('users').replaceOne(
+{},
+{
+    'firstname': req.body.firstname,
+    'lastname': req.body.lastname,
+    'username': req.body.username,
+    'email': req.body.email,
+    'password': req.body.password 
+},
+{}
+    );
+    res.redirect('/edit');
+    console.log(user)
 };
 
 
-// .post('/'); async (req, res) => {
-    
-//     await db.collection('users').replaceOne(
-//         {
-//             _id: ObjectId(req.body.update),
-//         },
-//         {
-//             'firstname ': req.body.firstname,
-//             'lastname': req.body.lastname,
-//             'username': req.body.username,
-//             'email': req.body.email,
-//             'password': req.body.password,
-//         },
-//         {}
-//     );
+module.exports = {
+    edit,
+    update,
+};
 
-//     res.redirect('/');
-// });
