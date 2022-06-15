@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const session = require('express-session');
+const shrinkRay = require('shrink-ray-current');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
@@ -61,3 +62,11 @@ app.use(passport.session());
 app.use((req, res) => {
   res.status(404).render('pages/404');
 });
+
+//compression using shrinkray
+app.use(
+  shrinkRay({
+    filter: req => req.headers['accept'].includes(['text/html'])
+  })
+);
+app.get(['*.js', '*.css'], serve.serveContentTypes);
