@@ -1,9 +1,9 @@
 // Hier komt backend code voor edit profil
 
-const edit = async (req, res) => {
+const profile = async (req, res) => {
     const user = await db.collection('users').findOne({},{});
     console.log(user)
-    res.render('pages/edit-profile', { user });
+    res.render('pages/profile', { user });
 }
 
 const update = async (req, res) => {
@@ -18,13 +18,13 @@ const update = async (req, res) => {
 },
 {}
     );
-    res.redirect('/user-profile');
+    res.redirect('/profile');
     console.log(user)
 };
 
 
 module.exports = {
-    edit,
+    profile,
     update,
 };
 
