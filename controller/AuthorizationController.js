@@ -1,8 +1,6 @@
 // register and login //
-const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const localStrategy = require('passport-local').Strategy;
 
 let session;
 
@@ -30,7 +28,7 @@ const register = async (req, res) => {
 const login = async (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/',
+    failureRedirect: '/?error=true',
     // failureFlash: true,
   })(req, res, next);
 };
