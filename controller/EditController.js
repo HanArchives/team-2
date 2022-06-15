@@ -15,11 +15,10 @@ const update = async (req, res) => {
     'lastname': req.body.lastname,
     'username': req.body.username,
     'email': req.body.email,
-    'password': req.body.password 
 },
 {}
     );
-    res.redirect('/edit');
+    res.redirect('/user-profile');
     console.log(user)
 };
 

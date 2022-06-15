@@ -30,11 +30,6 @@ pages
     res.render('pages/find-doggo');
   })
 
-    // Edit user page //
-    // .get('/edit', (req, res) => {
-    //   res.render('pages/edit-profile');
-    // })
-
   .get('/map', (req, res) => {
     res.render('pages/map');
   })
