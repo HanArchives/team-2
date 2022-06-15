@@ -58,15 +58,19 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// 404
-app.use((req, res) => {
-  res.status(404).render('pages/404');
-});
-
 //compression using shrinkray
+const type = require('./middleware/serve');
+const encoding = require('./middleware/serve');
+
 app.use(
   shrinkRay({
     filter: req => req.headers['accept'].includes(['text/html'])
   })
-);
-app.get(['*.js', '*.css'], serve.serveContentTypes);
+  );
+
+  app.get(['*.js', '*.css'], type.setContentType, encoding.setContentEncoding)
+
+// 404
+app.use((req, res) => {
+res.status(404).render('pages/404');
+});
