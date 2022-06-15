@@ -1,21 +1,23 @@
-const localStrategy = require('passport-local').Strategy;
-const db = require('../config/db');
+const LocalStrategy = require('passport-local').Strategy;
+// const db = require('../config/db');
 const bcrypt = require('bcrypt');
 
 module.exports = function (passport) {
   //local strategy
-  console.log('kaas');
   passport.use(
-    new localStrategy(function (username, password, done) {
+    new LocalStrategy(function (username, password, done) {
       // Match username
       let query = { username: username };
       console.log('appel');
       console.log(query);
 
+      // const users = await db.collection('users').find(query).toArray();
+      // console.log(users);
+
       db.collection('users')
         .findOne(query)
         .then(function (err, user) {
-          console.log(query);
+          // console.log(query);
           if (err) throw err;
           if (!user) {
             return done(null, false, {
@@ -43,7 +45,7 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser(function (id, done) {
-    db.collection('users').findById(id, function (err, user) {
+    db.collection('users').findOne(function id(err, user) {
       done(err, user);
     });
   });

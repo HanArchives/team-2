@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const session = require('express-session');
+const flash = require('connect-flash');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
@@ -31,12 +32,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-
     resave: false,
-
     saveUninitialized: true,
   })
 );
+app.use(flash());
 
 app.set('view engine', 'ejs');
 app.set('views, view');
