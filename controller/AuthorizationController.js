@@ -1,6 +1,7 @@
 // register and login //
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 let session;
 
@@ -20,6 +21,7 @@ const register = async (req, res) => {
 
   session = req.session;
   session.email = req.body.email;
+  req.flash('success', 'You are now registered and can log in');
   res.redirect('/home');
 
   console.log(session);
@@ -29,7 +31,6 @@ const login = async (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/home',
     failureRedirect: '/?error=true',
-    // failureFlash: true,
   })(req, res, next);
 };
 

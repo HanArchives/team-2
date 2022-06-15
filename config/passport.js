@@ -1,58 +1,6 @@
-// const LocalStrategy = require('passport-local').Strategy;
-// // const db = require('../config/db');
-// const bcrypt = require('bcrypt');
-
-// module.exports = function (passport) {
-//   //local strategy
-//   passport.use(
-//     new LocalStrategy(function (username, password, done) {
-//       // Match username
-//       let query = { username: username };
-
-//       // const users = await db.collection('users').find(query).toArray();
-//       // console.log(users);
-
-//       db.collection('users')
-//         .findOne(query)
-//         .then(function (err, user) {
-//           console.log(query);
-//           // console.log(query);
-//           if (err) throw err;
-//           if (!user) {
-//             return done(null, false, {
-//               message: 'No user found with that username, please register',
-//             });
-//           }
-
-//           // Match password
-//           bcrypt.compare(password, user.password, function (err, isMatch) {
-//             if (err) throw err;
-//             if (isMatch) {
-//               return done(null, user);
-//             } else {
-//               return done(null, false, {
-//                 message: 'No user found with that password, please register',
-//               });
-//             }
-//           });
-//         });
-//     })
-//   );
-
-//   passport.serializeUser(function (user, done) {
-//     done(null, user.id);
-//   });
-
-//   passport.deserializeUser(function (id, done) {
-//     db.collection('users').findByid(function id(err, user) {
-//       done(err, user);
-//     });
-//   });
-// };
-
 const LocalStrategy = require('passport-local').Strategy;
-// const db = require('../config/db');
 const bcrypt = require('bcrypt');
+const { modelNames } = require('mongoose');
 
 module.exports = function (passport) {
   //local strategy
@@ -65,19 +13,24 @@ module.exports = function (passport) {
       console.log(query);
 
       try {
+        // Match user
         users.findOne(query, (err, user) => {
           if (err) {
             return done(err);
           }
           if (!user) {
-            return done(null, false, { message: 'no user with that name' });
+            return done(null, false, {
+              message: 'No user found with that username',
+            });
           }
+
+          // Match password
           bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) throw err;
             if (isMatch) {
               return done(null, user);
             } else {
-              return done(null, false);
+              return done(null, false, { message: 'Wrong password' });
             }
           });
         });
@@ -88,11 +41,15 @@ module.exports = function (passport) {
     })
   );
 
-  passport.serializeUser(function (user, done) {
-    done(null, user);
+  // Serializing a user determines which data of the user object should be stored in the session
+  passport.serializeUser((user, done) => {
+    done(null, user._id);
   });
 
-  passport.deserializeUser(function (user, done) {
-    done(null, user);
+  // Deserialize User uses the id to look up the user in the database and retrieve the user object with data
+  passport.deserializeUser((id, done) => {
+    db.collection('users').findOne({ _id: new ObjectId(id) }, (err, user) => {
+      done(err, user);
+    });
   });
 };

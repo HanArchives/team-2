@@ -29,6 +29,7 @@ const logout = require('./routes/logout');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// session
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -36,13 +37,16 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 app.use(flash());
 
+// view ejs
 app.set('view engine', 'ejs');
 app.set('views, view');
 
 app.use(express.static(path.join(__dirname, 'static')));
 
+// use routes
 app.use('/', pages);
 app.use('/like', like);
 app.use('/unlike', unlike);

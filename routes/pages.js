@@ -30,11 +30,6 @@ pages
     res.render('pages/find-doggo');
   })
 
-  // Edit user page //
-  // .get('/edit', (req, res) => {
-  //   res.render('pages/edit-profile');
-  // })
-
   .get('/map', (req, res) => {
     res.render('pages/map');
   })
@@ -57,11 +52,6 @@ pages
 
     res.render('pages/likes', { userDog });
   });
-
-//passport config
-// require('./config/passport')(passport);
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 // function checkAuthenticated(req, res, next) {
 //   if (req.isAuthenticated()) {
