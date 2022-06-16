@@ -1,6 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const { modelNames } = require('mongoose');
 
 module.exports = function (passport) {
   //local strategy
