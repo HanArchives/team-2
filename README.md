@@ -1,26 +1,36 @@
 # PawDoption 🐕
-<img src="/static/img/process/pawdoption1.png" alt="PawDoption" width="100%" height="auto">
+<img src="/static/img/ui/pawdoption2.png" alt="PawDoption" width="100%" height="auto">
 
 ## About this project
-This school project is about building a feature for a matching application that is build with front-end and back-end. 
-OBS: Just know that it isn't a complete matching application but just a feature/part of an application. 
+This school project is about building a matching application that is build with front-end and back-end together as a team. Before this, as an induvidual we had to build a feature. This was just part of the application. Now it's on us to work as a team and make a whole rounded application.
+
+We merged the following features:
+* Han: Login, register, add, matches filter and delete features.
+* Nowy: Like and Unlike features. 
+* Jonna: Map and shelter filter features.
+* Thije: User profile and update profile features.
 
 ### Concept and Feature 🐶
-<img src="/static/img/process/size.png" alt="PawDoption" width="100%" height="auto">
-My concept is about users that want to adopt a dog based on their preferences. 
-* My main focus is filtering. The user can check some questions and based on the answers there will be a list of dogs that match the user preferences. * The user can also like a dog. The liked dog will be seen in the favorite list. 
+<img src="/static/img/ui/size1.png" alt="PawDoption" width="100%" height="auto">
+This concept is about users that want to adopt a dog or add a dog as a shelter. 
+
+* The user can check some questions and based on the answers there will be a list of dogs that match the user preferences. This is though either a form or a map.
+* The user can also like a dog. The liked dog will be seen in the favorite list. 
 * The user is also able to remove the like from the favorite list.
+* The user can register
+* The user can login and log out
+* The user can update their profile
 * The user can also add a dog to the database. 
-* And delete a dog from the database. 
+* The user can delete a dog from the database when the user wants to adopt a dog. 
 
 ## Installation
 
-### 💻 Clone my project? 
-If you are interested in cloning my project, go to a file with the terminal and do the following: 
+### 💻 Clone this project? 
+If you are interested in cloning this project, go to a file with the terminal and do the following: 
 
 1. Clone my repository:
 ```
-git clone https://github.com/hanarchives/bloktech
+git clone git@github.com:HanArchives/team-2.git
 ```
 2. To run this application you need to install some packages. The first one is: NPM
 ```
@@ -49,7 +59,7 @@ nvm install stable
 node -v # 
 npm -v # 
 ```
-## ⚙️ I used the following building blocks
+## ⚙️ We used the following building blocks
 * HTML (EJS)
 * CSS
 * Javascript
@@ -59,6 +69,13 @@ npm -v #
 * Multer 
 * dotenv
 * esLint
+* session
+
+## ⚙️ We used the following topics
+* Han: [Passport](https://github.com/HanArchives/team-2/wiki/)
+* Jonna: [Error Handlers](https://github.com/HanArchives/team-2/wiki/)
+* Nowy: [Nodemailer](https://github.com/HanArchives/team-2/wiki/)
+* Thije: [Compressor](https://github.com/HanArchives/team-2/wiki/)
 
 ### ✅ Start
 Congratulations! The last step to run this application is to run the following line in your terminal:
@@ -67,15 +84,11 @@ npm run dev
 ```
 
 ## 🗃️ Database
-I worked with MongoDB for my database. If you want to read more about my database and the structure please read [application](https://github.com/HanArchives/bloktech/wiki//structure) and [database](https://github.com/HanArchives/bloktech/wiki//database) structure in my wiki.  
+We worked with MongoDB for a database. If you want to read more about the database and the structure please read  [database](https://github.com/HanArchives/team-2/wiki) structure in our wiki.  
 ## 📚 Documentation
-Checkout my [wiki](https://github.com/HanArchives/bloktech/wiki) for full doumentation and research I did for this project. 
+Checkout the [wiki](https://github.com/HanArchives/team-2/wiki) for full doumentation and research we did for this project. You can also see our most important commits.
 
 ## ❗ License
 This repository is licensed with [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt). According to GitHub it's: A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
-<img src="/static/img/process/paws1.png" alt="PawDoption" width="100%" height="auto">
-
-## 📧 Contact me
-* Name: Han O.
-* Portfolio: [Han Archives](https://hanarchives.github.io/portfolio/)
+<img src="/static/img/ui/paws1.png" alt="PawDoption" width="100%" height="auto">

@@ -42,15 +42,22 @@ pages
   })
 
   .get('/likes', async (req, res) => {
-    const likes = await db
-      .collection('matches')
-      .find({
-        like: true,
-      })
-      .toArray();
-    res.render('pages/likes', {
-      likes,
+    const user = await db.collection('users').findOne({
+      firstname: 'thije',
     });
+    const likes = await db.collection('matches').find().toArray();
+    const userDog = likes.filter((dog) =>
+      user.dog_id.includes(String(dog._id))
+    );
+
+    res.render('pages/likes', { userDog });
   });
+
+// function checkAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   res.redirect('/');
+// }
 
 module.exports = pages;

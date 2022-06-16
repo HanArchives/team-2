@@ -2,13 +2,13 @@
 const { ObjectId } = require('mongodb');
 
 const unlike = async (req, res) => {
-  await db.collection('matches').updateOne(
+  const users = await db.collection('users').updateOne(
     {
-      _id: ObjectId(req.body.remove),
+      _id: ObjectId('62a375d45f65c08711122599'),
     },
     {
-      $set: {
-        like: false,
+      $pull: {
+        dog_id: req.body.remove,
       },
     }
   );
