@@ -1,7 +1,7 @@
 // register and login //
-const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const flash = require('connect-flash');
 
 let session;
 
@@ -21,40 +21,26 @@ const register = async (req, res) => {
 
   session = req.session;
   session.email = req.body.email;
+  req.flash('success', 'You are now registered and can log in');
   res.redirect('/home');
 
   console.log(session);
 };
 
-// const login = async (req, res) => {
-//   try {
-//     const user = await db
-//       .collection('users')
-//       .findOne({ username: req.body.username.toLowerCase() });
-
-//     if (user) {
-//       const compare = await bcrypt.compare(req.body.password, user.password);
-
-//       if (compare) {
-//         console.log('Succes!');
-//       } else {
-//         console.log('Wrong username!');
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 const login = async (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/',
-    // failureFlash: true,
+    failureRedirect: '/?error=true',
   })(req, res, next);
+};
+
+const logout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
 };
 
 module.exports = {
   register: register,
   login: login,
+  logout: logout,
 };

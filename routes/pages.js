@@ -30,11 +30,6 @@ pages
     res.render('pages/find-doggo');
   })
 
-  // Edit user page //
-  // .get('/edit', (req, res) => {
-  //   res.render('pages/edit-profile');
-  // })
-
   .get('/map', (req, res) => {
     res.render('pages/map');
   })
@@ -57,5 +52,12 @@ pages
 
     res.render('pages/likes', { userDog });
   });
+
+// function checkAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
+//   res.redirect('/');
+// }
 
 module.exports = pages;

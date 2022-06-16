@@ -5,6 +5,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const session = require('express-session');
+const flash = require('connect-flash');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
@@ -20,37 +21,42 @@ const unlike = require('./routes/unliking');
 const match = require('./routes/match');
 const deleteDog = require('./routes/delete');
 const add = require('./routes/add');
-const edit = require('./routes/edit');
+const profile = require('./routes/profile');
 const register = require('./routes/register');
 const login = require('./routes/login');
+const logout = require('./routes/logout');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// session
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-
     resave: false,
-
     saveUninitialized: true,
   })
 );
 
+app.use(flash());
+
+// view ejs
 app.set('view engine', 'ejs');
 app.set('views, view');
 
 app.use(express.static(path.join(__dirname, 'static')));
 
+// use routes
 app.use('/', pages);
 app.use('/like', like);
 app.use('/unlike', unlike);
 app.use('/deleteDog', deleteDog);
 app.use('/add', add);
 app.use('/match', match);
-app.use('/edit', edit);
+app.use('/profile', profile);
 app.use('/register', register);
 app.use('/login', login);
+app.use('/logout', logout);
 
 //passport config
 require('./config/passport')(passport);

@@ -8,7 +8,14 @@ const match = async (req, res) => {
   const queryAge = { age: { $in: arrayify(req.body.age) } };
   const query = { ...queryGender, ...querySize, ...queryAge }; // make one object of three objects
 
-  const matches = await db.collection('matches').find(query).toArray();
+  const match = await db.collection('matches').find(query).toArray();
+
+  const user = await db.collection('users').findOne({
+    firstname: 'thije',
+  });
+
+  const matches = match.filter((dog) => !user.dog_id.includes(String(dog._id)));
+
   res.render('pages/match', { matches });
 };
 
