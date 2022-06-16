@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const shrinkRay = require('shrink-ray-current');
 
+
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
 
@@ -69,6 +70,18 @@ app.use(
   );
 
   app.get(['*.js', '*.css'], type.setContentType, encoding.setContentEncoding)
+
+  //  compression using compression
+  // const compression = require('compression');
+  // app.use(compression({
+  //   level: 6, // You can choose from level 0-9. 6 is best for processor usage optimalisation
+  //   threshold: 0 // Makes every file from 0KB compress.
+  // })
+  // );
+
+
+
+
 
 // 404
 app.use((req, res) => {
