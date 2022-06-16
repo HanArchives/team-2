@@ -15,7 +15,6 @@ const match = async (req, res) => {
   });
 
   const matches = match.filter((dog) => !user.dog_id.includes(String(dog._id)));
-  console.log(user);
 
   res.render('pages/match', { matches });
 };
