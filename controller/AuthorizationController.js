@@ -15,6 +15,7 @@ const register = async (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: password,
+    dog_id: [],
   };
 
   await db.collection('users').insertOne(user);
@@ -22,7 +23,7 @@ const register = async (req, res) => {
   session = req.session;
   session.email = req.body.email;
   req.flash('success', 'You are now registered and can log in');
-  res.redirect('/home');
+  res.redirect('/');
 
   console.log(session);
 };

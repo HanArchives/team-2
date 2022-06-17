@@ -1,10 +1,11 @@
-// Remove doggo from favorites //
 const { ObjectId } = require('mongodb');
 
 const unlike = async (req, res) => {
-  const users = await db.collection('users').updateOne(
+  const sessionData = req.session.passport.user;
+  console.log(sessionData);
+  const user = await db.collection('users').updateOne(
     {
-      _id: ObjectId('62a375d45f65c08711122599'),
+      _id: ObjectId(sessionData),
     },
     {
       $pull: {

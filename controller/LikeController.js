@@ -1,10 +1,15 @@
 // Add doggo to favorites //
 const { ObjectId } = require('mongodb');
+// const { session } = require('passport');
 
 const like = async (req, res) => {
-  await db.collection('users').updateOne(
+  const sessionData = req.session.passport.user;
+  console.log(sessionData);
+  const { ObjectId } = require('mongodb');
+
+  const user = await db.collection('users').updateOne(
     {
-      _id: ObjectId('62a375d45f65c08711122599'),
+      _id: ObjectId(sessionData),
     },
     {
       $push: {
@@ -12,7 +17,7 @@ const like = async (req, res) => {
       },
     }
   );
-
+  console.log(user);
   res.redirect('/likes');
 };
 

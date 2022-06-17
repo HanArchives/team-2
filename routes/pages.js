@@ -42,9 +42,14 @@ pages
   })
 
   .get('/likes', async (req, res) => {
+    const sessionData = req.session.passport.user;
+    console.log(sessionData);
+    const { ObjectId } = require('mongodb');
+
     const user = await db.collection('users').findOne({
-      firstname: 'thije',
+      _id: ObjectId(sessionData),
     });
+
     const likes = await db.collection('matches').find().toArray();
     const userDog = likes.filter((dog) =>
       user.dog_id.includes(String(dog._id))

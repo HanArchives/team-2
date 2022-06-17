@@ -8,7 +8,6 @@ const add = async (req, res, next) => {
     size: req.body.size,
     about: req.body.about,
     shelter: req.body.shelter,
-    like: false,
   };
   // ADD TO DB
   await db.collection('matches').insertOne(doggo);
