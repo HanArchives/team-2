@@ -41,20 +41,6 @@ pages
     res.render('pages/match', { matches: dogs });
   })
 
-  // .get('/likes', async (req, res) => {
-  //   const session = req.session;
-  //   console.log(session);
-
-  //   const user = await db.collection('users').findOne({
-  //     firstname: 'thije',
-  //   });
-  //   const likes = await db.collection('matches').find().toArray();
-  //   const userDog = likes.filter((dog) =>
-  //     user.dog_id.includes(String(dog._id))
-  //   );
-
-  //   res.render('pages/likes', { userDog });
-  // });
   .get('/likes', async (req, res) => {
     const sessionData = req.session.passport.user;
     console.log(sessionData);
