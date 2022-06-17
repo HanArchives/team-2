@@ -7,10 +7,6 @@ const like = async (req, res) => {
   console.log(sessionData);
   const { ObjectId } = require('mongodb');
 
-  // const user = await db.collection('users').updateOne({
-  //   _id: ObjectId(sessionData),
-  // });
-
   const user = await db.collection('users').updateOne(
     {
       _id: ObjectId(sessionData),
