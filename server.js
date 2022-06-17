@@ -48,6 +48,13 @@ app.set('views, view');
 
 app.use(express.static(path.join(__dirname, 'static')));
 
+//passport config
+require('./config/passport')(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./controller/AuthenticateController');
+
 // use routes
 app.use('/', pages);
 app.use('/like', like);
@@ -59,11 +66,6 @@ app.use('/profile', profile);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/logout', logout);
-
-//passport config
-require('./config/passport')(passport);
-app.use(passport.initialize());
-app.use(passport.session());
 
 // compression using comprssion
 app.use(compression());

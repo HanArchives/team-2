@@ -254,9 +254,9 @@ path {
   }
 }
 
-/****************************************
-DROPDOWN
-***************************************/
+/****************/
+/* DROPDOWN MAP */
+/****************/
 .dropbtn {
   background-color: var(--bg-color-button-secondary);
   border: none;
@@ -303,9 +303,9 @@ DROPDOWN
   background-color: var(--bg-color-button);
 }
 
-/*************************************
-PROGRESSIVE ENHANCEMENT
-*************************************/
+/*******************************/
+/* PROGRESSIVE ENHANCEMENT MAP */
+/*******************************/
 .hidden {
   display: none;
 }
@@ -318,4 +318,3 @@ ul {
 main {
   text-align: center;
 }
-
