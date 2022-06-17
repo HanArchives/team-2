@@ -6,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const session = require('express-session');
 const shrinkRay = require('shrink-ray-current');
+const compression = require('compression');
 
 
 require('dotenv').config();
@@ -25,6 +26,7 @@ const add = require('./routes/add');
 const edit = require('./routes/edit');
 const register = require('./routes/register');
 const login = require('./routes/login');
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -60,24 +62,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //compression using shrinkray
-const type = require('./middleware/serve');
-const encoding = require('./middleware/serve');
+// const type = require('./middleware/serve');
+// const encoding = require('./middleware/serve');
 
-app.use(
-  shrinkRay({
-    filter: req => req.headers['accept'].includes(['text/html'])
-  })
-  );
+// app.use(
+//   shrinkRay({
+//     filter: req => req.headers['accept'].includes(['text/html'])
+//   })
+//   );
 
-  app.get(['*.js', '*.css'], type.setContentType, encoding.setContentEncoding)
+//   app.get(['*.js', '*.css'], type.setContentType, encoding.setContentEncoding)
 
   //  compression using compression
-  // const compression = require('compression');
-  // app.use(compression({
-  //   level: 6, // You can choose from level 0-9. 6 is best for processor usage optimalisation
-  //   threshold: 0 // Makes every file from 0KB compress.
-  // })
-  // );
+
+  app.use(compression());
 
 
 
