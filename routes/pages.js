@@ -3,10 +3,11 @@
 /////////////////////
 const express = require('express');
 const pages = express.Router();
+const checkAuthenticated = require('../controller/AuthenticateController');
 
 pages
   // Index page //
-  .get('/home', (req, res) => {
+  .get('/home', checkAuthenticated, (req, res) => {
     res.render('pages/home');
   })
   // Login page //
@@ -18,30 +19,30 @@ pages
     res.render('pages/register');
   })
   // Redirect page //
-  .get('/redirect', (req, res) => {
+  .get('/redirect', checkAuthenticated, (req, res) => {
     res.render('pages/redirect');
   })
   // Add doggo page //
-  .get('/add-doggo', (req, res) => {
+  .get('/add-doggo', checkAuthenticated, (req, res) => {
     res.render('pages/add-doggo');
   })
   // Find doggo page //
-  .get('/find-doggo', (req, res) => {
+  .get('/find-doggo', checkAuthenticated, (req, res) => {
     res.render('pages/find-doggo');
   })
 
-  .get('/map', (req, res) => {
+  .get('/map', checkAuthenticated, (req, res) => {
     res.render('pages/map');
   })
 
-  .get('/shelter-overview', async (req, res) => {
+  .get('/shelter-overview', checkAuthenticated, async (req, res) => {
     const query = { shelter: req.query.shelter };
     const dogs = await db.collection('matches').find(query).toArray();
 
     res.render('pages/match', { matches: dogs });
   })
 
-  .get('/likes', async (req, res) => {
+  .get('/likes', checkAuthenticated, async (req, res) => {
     const sessionData = req.session.passport.user;
     console.log(sessionData);
     const { ObjectId } = require('mongodb');
