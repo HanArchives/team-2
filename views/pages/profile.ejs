@@ -6,39 +6,7 @@
     <body>
         <%- include('../components/header'); %>
             <main>
-                
-
-                <form action="/profile" method="POST">
-                    
-                <section class="register">
-                    <h2>Your profile</h2>
-                    <img class="img-add-doggo" src="img/ui/mainpom.png" alt="Main pom logo">
-                    
-                    <section class="dog-profile">
-                            <fieldset>
-                                <label for="firstname">Firstname:</label>
-                                <input type="text" name="firstname" id="firstname" value="<%= user.firstname %>">
-                            </fieldset>
-                            <fieldset>
-                                <label for="lastname">Lastname:</label>
-                                <input type="text" name="lastname" id="lastname" value="<%= user.lastname %>">
-                            </fieldset>
-                            <fieldset>
-                                <label for="username">Username:</label>
-                                <input type="text" name="username" id="username" value="<%= user.username %>">
-                            </fieldset>
-                            <fieldset>
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" id="email" value="<%= user.email %>">
-                            </fieldset>
-
-                        <button name="profile" type="submit" id="profile" value="<%= user._id %>"> Update your profile</button>
-
-                                    
-                           
-                    </section>
-                    
-                </form>   
+                <%- include('../partials/form-profile'); %>
             </main>
             <%- include('../components/footer'); %>
                 <script src="scripts/animate-api.js"></script>

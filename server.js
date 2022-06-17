@@ -8,7 +8,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const compression = require('compression');
 
-
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
 
@@ -66,11 +65,8 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 // compression using comprssion
 app.use(compression());
-
-
 
 // 404
 app.use((req, res) => {

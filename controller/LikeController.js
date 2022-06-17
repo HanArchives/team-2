@@ -1,6 +1,5 @@
 // Add doggo to favorites //
 const { ObjectId } = require('mongodb');
-// const { session } = require('passport');
 
 const like = async (req, res) => {
   const sessionData = req.session.passport.user;
