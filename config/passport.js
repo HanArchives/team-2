@@ -1,15 +1,16 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const mongodb = require('mongodb').MongoClient;
 
 module.exports = function (passport) {
   //local strategy
   passport.use(
-    new LocalStrategy(async function (username, password, done) {
+    new LocalStrategy(function (username, password, done) {
       // Match username
       let query = { username: username };
 
-      const users = await db.collection('users');
-      console.log(query);
+      const users = db.collection('users');
+      // console.log(query);
 
       try {
         // Match user
@@ -40,15 +41,30 @@ module.exports = function (passport) {
     })
   );
 
-  // Serializing a user determines which data of the user object should be stored in the session
   passport.serializeUser((user, done) => {
     done(null, user._id);
   });
 
-  // Deserialize User uses the id to look up the user in the database and retrieve the user object with data
   passport.deserializeUser((id, done) => {
+    const { ObjectId } = require('mongodb');
     db.collection('users').findOne({ _id: new ObjectId(id) }, (err, user) => {
-      done(err, user);
+      if (err) {
+        return done(err);
+      }
+      return done(null, user);
     });
   });
 };
+
+//   // Serializing a user determines which data of the user object should be stored in the session
+//   passport.serializeUser((user, done) => {
+//     done(null, user._id);
+//   });
+
+// Deserialize User uses the id to look up the user in the database and retrieve the user object with data
+// passport.deserializeUser((id, done) => {
+//   db.collection('users').findOne({ _id: new ObjectId(id) }, (err, user) => {
+//     done(err, user);
+//   });
+// });
+// };
