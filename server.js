@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const flash = require('connect-flash');
 const compression = require('compression');
+const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
@@ -53,6 +54,7 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Authentication
 require('./controller/AuthenticateController');
 
 // use routes
@@ -69,6 +71,50 @@ app.use('/logout', logout);
 
 // compression using comprssion
 app.use(compression());
+
+// nodemailer, contact
+async function mainMail(name, email, subject, message) {
+  let transporter = await nodemailer.createTransport({
+    service: 'hotmail',
+    auth: {
+      user: process.env.HOTMAIL_USER,
+      pass: process.env.HOTMAIL_PASSWORD,
+    },
+  });
+  let mailOption = {
+    from: process.env.HOTMAIL_USER,
+    to: process.env.HOTMAIL_USER,
+    subject: subject,
+    html: `You got a message from 
+    Email : ${email}
+    Name: ${name}
+    Message: ${message}`,
+  };
+  console.log(mailOption);
+  try {
+    await transporter.sendMail(mailOption);
+    return Promise.resolve('Message Sent Successfully!');
+  } catch (error) {
+    console.log(error);
+    return Promise.reject(error);
+  }
+}
+
+app.get('/contact', (req, res) => {
+  res.render(contact.html);
+});
+
+app.post('/contact', async (req, res, next) => {
+  const { yourname, youremail, yoursubject, yourmessage } = req.body;
+  try {
+    await mainMail(yourname, youremail, yoursubject, yourmessage);
+
+    res.redirect('/contact');
+  } catch (error) {
+    console.log(error);
+    res.send('Message Could not be Sent');
+  }
+});
 
 // 404
 app.use((req, res) => {

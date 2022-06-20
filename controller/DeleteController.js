@@ -6,7 +6,7 @@ const deleteDog = async (req, res) => {
     _id: ObjectId(req.body.delete),
   });
 
-  res.redirect('/redirect');
+  res.redirect('/contact');
 };
 
 module.exports = {
