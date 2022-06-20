@@ -1,59 +1,62 @@
 <form action="/add" enctype="multipart/form-data" method="post" class="form-add-doggo">
-    <img class="img-add-doggo" src="img/ui/mainpom.png" alt="Main pop logo">
+
+    <img class="form-img" src="img/ui/mainpom.png" alt="Main pop logo">
+
     <label class="label">Upload image</label>
     <input class="upload" type="file" name="image" required>
-    <div>
-        <label for="name" class="label">Name</label>
-        <textarea name="name" id="" cols="30" rows="2"></textarea>
-    </div>
+
+    <label for="name" class="label">Name</label>
+    <textarea name="name" id="" cols="30" rows="2"></textarea>
+
     <p>Gender</p>
     <div class="questionnaire-row--add-doggo">
-        <div><input name="gender" value="female" type="checkbox" id="female" />
-            <label for="female">Female</label>
-        </div>
-        <div><input name="gender" value="male" type="checkbox" id="male" />
-            <label for="male">Male</label>
-        </div>
+        <input name="gender" value="female" type="checkbox" id="female" />
+        <label for="female">Female</label>
+
+        <input name="gender" value="male" type="checkbox" id="male" />
+        <label for="male">Male</label>
     </div>
+
     <p>Age</p>
     <div class="questionnaire-row--add-doggo">
-        <div><input name="age" value="zero-five" type="checkbox" id="zero-five" />
-            <label for="zero-five">0 - 5</label>
-        </div>
-        <div><input name="age" value="six-ten" type="checkbox" id="six-ten" />
-            <label for="six-ten">6 - 10</label>
-        </div>
-        <div><input name="age" value="ten-plus" type="checkbox" id="ten-plus" />
-            <label for="ten-plus">10+</label>
-        </div>
+        <input name="age" value="zero-five" type="checkbox" id="zero-five" />
+        <label for="zero-five">0 - 5</label>
+
+        <input name="age" value="six-ten" type="checkbox" id="six-ten" />
+        <label for="six-ten">6 - 10</label>
+
+        <input name="age" value="ten-plus" type="checkbox" id="ten-plus" />
+        <label for="ten-plus">10+</label>
     </div>
+
     <p>Size?</p>
     <div class="questionnaire-row--add-doggo">
-        <div><input name="size" value="small" type="checkbox" id="small" />
-            <label for="small">Small</label>
-        </div>
-        <div><input name="size" value="medium" type="checkbox" id="medium" />
-            <label for="medium">Medium</label>
-        </div>
-        <div><input name="size" value="large" type="checkbox" id="large" />
-            <label for="large">Large</label>
-        </div>
+        <input name="size" value="small" type="checkbox" id="small" />
+        <label for="small">Small</label>
+
+        <input name="size" value="medium" type="checkbox" id="medium" />
+        <label for="medium">Medium</label>
+
+        <input name="size" value="large" type="checkbox" id="large" />
+        <label for="large">Large</label>
     </div>
+
     <p>Shelter:</p>
     <div class="questionnaire-row--add-doggo">
-        <div><input name="shelter" value="Vondel" type="checkbox" id="Vondel" />
-            <label for="Vondel">Vondel</label>
-        </div>
-        <div><input name="shelter" value="Wester" type="checkbox" id="Wester" />
-            <label for="Wester">Wester</label>
-        </div>
-        <div><input name="shelter" value="Ooster" type="checkbox" id="Ooster" />
-            <label for="Ooster">Ooster</label>
-        </div>
+        <input name="shelter" value="Vondel" type="checkbox" id="Vondel" />
+        <label for="Vondel">Vondel</label>
+
+        <input name="shelter" value="Wester" type="checkbox" id="Wester" />
+        <label for="Wester">Wester</label>
+
+        <input name="shelter" value="Ooster" type="checkbox" id="Ooster" />
+        <label for="Ooster">Ooster</label>
     </div>
+
     <div>
         <label for="about" class="label">Description</label>
         <textarea name="about" id="" cols="30" rows="10"></textarea>
     </div>
+
     <button class="add-submit">Add doggo</button>
 </form>

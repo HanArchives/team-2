@@ -1,46 +1,48 @@
 <!-- Question one -->
 <form action="/match" method="post">
     <section class="questionnaire first">
-        <h2>
-            Gender?
-        </h2>
+        <h2>Gender?</h2>
+
         <img src="./img/ui/mainpom.png" alt="Pom">
+
         <div class="question-1">
             <div class="questionnaire-row">
-                <div><input name="gender" value="female" type="checkbox" id="female" />
-                    <label for="female"><img src="./img/ui/femalew.png" alt="female" /></label>
-                </div>
-                <div><input name="gender" value="male" type="checkbox" id="male" />
-                    <label for="male"><img src="./img/ui/malew.png" alt="male" /></label>
-                </div>
+                <input name="gender" value="female" type="checkbox" id="female" />
+                <label for="female"><img src="./img/ui/femalew.png" alt="female" /></label>
+
+                <input name="gender" value="male" type="checkbox" id="male" />
+                <label for="male"><img src="./img/ui/malew.png" alt="male" /></label>
             </div>
+
             <p class="error-1"> Please check at least 1 gender option. </p>
             <button class="select-all-one">Select all</button>
         </div>
+
         <button class="btn-next-1">Next</button>
     </section>
 
     <!-- Question two -->
     <section class="questionnaire second">
-        <h2>
-            Age?
-        </h2>
+        <h2>Age? </h2>
+
         <img src="./img/ui/age.png" alt="PomPoms">
+
         <div class="question-2">
             <div class="questionnaire-row">
-                <div><input name="age" value="zero-five" type="checkbox" id="zero-five" />
-                    <label for="zero-five">0 - 5</label>
-                </div>
-                <div><input name="age" value="six-ten" type="checkbox" id="six-ten" />
-                    <label for="six-ten">6 - 10</label>
-                </div>
-                <div><input name="age" value="ten-plus" type="checkbox" id="ten-plus" />
-                    <label for="ten-plus">10+</label>
-                </div>
+                <input name="age" value="zero-five" type="checkbox" id="zero-five" />
+                <label for="zero-five">0 - 5</label>
+
+                <input name="age" value="six-ten" type="checkbox" id="six-ten" />
+                <label for="six-ten">6 - 10</label>
+
+                <input name="age" value="ten-plus" type="checkbox" id="ten-plus" />
+                <label for="ten-plus">10+</label>
             </div>
+
             <p class="error-2"> Please check at least 1 age option. </p>
             <button class="select-all-two">Select all</button>
         </div>
+
         <button class="btn-next-2">Next</button>
     </section>
 
@@ -53,19 +55,20 @@
         <%- include('../partials/dog-sizes'); %>
             <div class="question-3">
                 <div class="questionnaire-row">
-                    <div><input name="size" value="small" type="checkbox" id="small" />
-                        <label for="small">Small</label>
-                    </div>
-                    <div><input name="size" value="medium" type="checkbox" id="medium" />
-                        <label for="medium">Medium</label>
-                    </div>
-                    <div><input name="size" value="large" type="checkbox" id="large" />
-                        <label for="large">Large</label>
-                    </div>
+                    <input name="size" value="small" type="checkbox" id="small" />
+                    <label for="small">Small</label>
+
+                    <input name="size" value="medium" type="checkbox" id="medium" />
+                    <label for="medium">Medium</label>
+
+                    <input name="size" value="large" type="checkbox" id="large" />
+                    <label for="large">Large</label>
                 </div>
+
                 <p class="error-3"> Please check at least 1 size option. </p>
                 <button class="select-all-three">Select all</button>
             </div>
+
             <div class="btn-submit">
                 <input name="submit" type="submit" id="submit">
                 <label for="submit">Show my match!</label>

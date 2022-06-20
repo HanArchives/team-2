@@ -1,13 +1,21 @@
 <form action="/contact" method="post" class="contact-form">
 
-    <img class="img-add-doggo" src="img/ui/age.png" alt="Main pop logo">
+    <img class="form-img" src="img/ui/age.png" alt="Main pop logo">
 
     <p>Thank you for wanting to give a rescue dog a home! Please fill in these questions and we will
         contact you.</p>
 
+    <label class="label" for="yourname">Your name:</label>
     <input type="text" class="contact-form-text" placeholder="Your name" name="yourname" required />
+
+    <label class="label" for="youremail">Your e-mail:</label>
     <input type="email" class="contact-form-text" placeholder="Your email" name="youremail" required />
+
+    <label class="label" for="yoursubject">Your subject:</label>
     <input type="text" class="contact-form-text" name="yoursubject" placeholder="Subject" required />
+
+    <label class="label" for="yourmessage">What is your message?</label>
     <textarea class="contact-form-message" placeholder="Your message" name="yourmessage"></textarea>
+
     <button type="submit" id="form-submit" class="contact-form-btn" value="Send" required>Send</button>
 </form>
