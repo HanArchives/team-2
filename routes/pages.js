@@ -19,9 +19,10 @@ pages
     res.render('pages/register');
   })
   // Redirect page //
-  .get('/redirect', checkAuthenticated, (req, res) => {
-    res.render('pages/redirect');
+  .get('/contact', checkAuthenticated, (req, res) => {
+    res.render('pages/contact');
   })
+
   // Add doggo page //
   .get('/add-doggo', checkAuthenticated, (req, res) => {
     res.render('pages/add-doggo');

@@ -431,18 +431,23 @@ input[type='number'] {
   width: auto;
 }
 
-/***************/
-/* Survey-form */
-/***************/
-.form-survey {
+/****************/
+/* contact-form */
+/****************/
+.contact-form {
   background-color: rgb(251, 251, 242);
   border-radius: 15px;
   text-align: center;
   width: 60%;
 }
 
-.form-survey button {
+.contact-form button {
   margin-bottom: 2rem;
+}
+
+.contact-form textarea {
+  width: 60%;
+  margin-bottom: 1rem;
 }
 
 /**********/
