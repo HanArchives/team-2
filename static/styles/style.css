@@ -456,17 +456,22 @@ input[type='number'] {
 button {
   background-color: var(--bg-color-button);
   box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   color: var(--color-secondary);
   cursor: pointer;
   font-family: 'spoof', Arial, Helvetica, sans-serif;
   padding: 1rem;
   width: 30%;
+  transition: 0.2s;
 }
 
 button:hover {
   background-color: var(--bg-color-button-secondary);
+  transform: translatey(-0.5em);
+  box-shadow: 0 0.5em var(--bg-color-royal-blue);
+
+  cursor: pointer;
 }
 
 button:active,
@@ -511,7 +516,6 @@ a:hover {
 /* dog-profile */
 /***************/
 .dog-profile {
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   font-size: 0.875rem;
@@ -525,6 +529,7 @@ a:hover {
 }
 
 .dog-profile__img-container {
+  border-radius: 10px 10px 0px 0px;
   background-color: var(--bg-color-menu);
   height: 0;
   overflow: hidden;
@@ -545,6 +550,7 @@ a:hover {
 }
 
 .dog-profile__content {
+  border-radius: 0px 0px 10px 10px;
   background-color: var(--color-secondary);
   display: flex;
   flex-direction: column;
@@ -581,7 +587,7 @@ a:hover {
   color: var(--bg-color-royal-blue);
 }
 
-.dog-profile__content h2 {
+/* .dog-profile__content h2 {
   background-color: var(--bg-color-royal-blue);
   border-radius: 15px;
   color: var(--color-secondary);
@@ -593,6 +599,22 @@ a:hover {
   right: 1rem;
   text-align: center;
   transform: translateY(-130%);
+} */
+
+.dog-profile__content h2 {
+  font-size: 6em;
+  border-radius: 15px;
+  color: var(--bg-color-menu);
+  display: inline;
+  font-weight: bolder;
+  left: 0.6rem;
+
+  padding: 1rem;
+  position: absolute;
+  /* text-shadow: 4px 3px 0px black; */
+
+  text-align: center;
+  transform: translateY(-160%);
 }
 
 /*************/
@@ -703,7 +725,8 @@ a:hover {
 /**********/
 /* pop up */
 /**********/
-.pop-up {
+.pop-up,
+.pop-up-mail {
   background-color: var(--color-secondary);
   border: #012a68 solid 2px;
   border-radius: 15px;
@@ -712,6 +735,10 @@ a:hover {
   text-align: center;
   transform: translate(0%, -65vh);
   width: 60%;
+}
+
+.pop-up-mail {
+  transform: translate(0%, -10vh);
 }
 
 .background-blur {
@@ -734,6 +761,24 @@ a:hover {
 
 path {
   fill: currentColor;
+}
+
+/*************/
+/* after empty state */
+/*************/
+ul:empty::after {
+  content: "Oh dear! You don't have any favorites yet! Add dogs to your favorites list by clicking adopt doggo";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--color-secondary);
+  padding: 4em;
+  background-color: var(--bg-color-menu);
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  width: 20em;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 /*********/

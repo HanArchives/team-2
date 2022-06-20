@@ -108,8 +108,6 @@ app.post('/contact', async (req, res, next) => {
   const { yourname, youremail, yoursubject, yourmessage } = req.body;
   try {
     await mainMail(yourname, youremail, yoursubject, yourmessage);
-
-    res.redirect('/contact');
   } catch (error) {
     console.log(error);
     res.send('Message Could not be Sent');
