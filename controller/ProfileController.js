@@ -32,7 +32,7 @@ const update = async (req, res) => {
     },
     {}
   );
-  res.redirect('/profile');
+
   console.log(user);
 };
 

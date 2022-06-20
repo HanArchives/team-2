@@ -771,3 +771,7 @@ path {
     width: 30%;
   }
 }
+
+.updateProfile {
+  display: none;
+}
