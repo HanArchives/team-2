@@ -664,8 +664,7 @@ a:hover {
 /**********/
 /* pop up */
 /**********/
-.pop-up,
-.pop-up-mail {
+.pop-up {
   background-color: var(--color-secondary);
   border: #012a68 solid 2px;
   border-radius: 15px;
@@ -677,8 +676,19 @@ a:hover {
 }
 
 .pop-up-mail {
-  transform: translate(0%, -10vh);
+  background-color: var(--color-secondary);
+  border: #012a68 solid 2px;
+  border-radius: 15px;
+  display: none;
+  height: 6.25em;
+  text-align: center;
+  transform: translate(0%, -65vh);
+  width: 60%;
 }
+
+/* .pop-up-mail {
+  transform: translate(0%, -10vh);
+} */
 
 .background-blur {
   filter: blur(8px);
