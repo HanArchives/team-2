@@ -511,7 +511,6 @@ a:hover {
 /* dog-profile */
 /***************/
 .dog-profile {
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   font-size: 0.875rem;
@@ -525,6 +524,7 @@ a:hover {
 }
 
 .dog-profile__img-container {
+  border-radius: 10px 10px 0px 0px;
   background-color: var(--bg-color-menu);
   height: 0;
   overflow: hidden;
@@ -545,6 +545,7 @@ a:hover {
 }
 
 .dog-profile__content {
+  border-radius: 0px 0px 10px 10px;
   background-color: var(--color-secondary);
   display: flex;
   flex-direction: column;
@@ -703,7 +704,8 @@ a:hover {
 /**********/
 /* pop up */
 /**********/
-.pop-up {
+.pop-up,
+.pop-up-mail {
   background-color: var(--color-secondary);
   border: #012a68 solid 2px;
   border-radius: 15px;
@@ -712,6 +714,10 @@ a:hover {
   text-align: center;
   transform: translate(0%, -65vh);
   width: 60%;
+}
+
+.pop-up-mail {
+  transform: translate(0%, -10vh);
 }
 
 .background-blur {
@@ -734,6 +740,24 @@ a:hover {
 
 path {
   fill: currentColor;
+}
+
+/*************/
+/* after empty state */
+/*************/
+ul:empty::after {
+  content: "Oh dear! You don't have any favorites yet! Add dogs to your favorites list by clicking adopt doggo";
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  color: var(--color-secondary);
+  padding: 4em;
+  background-color: var(--bg-color-menu);
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  width: 20em;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 /*********/
