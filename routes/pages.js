@@ -18,7 +18,7 @@ pages
   .get('/register', (req, res) => {
     res.render('pages/register');
   })
-  // Redirect page //
+  // Contact page //
   .get('/contact', checkAuthenticated, (req, res) => {
     res.render('pages/contact');
   })

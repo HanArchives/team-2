@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const flash = require('connect-flash');
 const compression = require('compression');
-const nodeMailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 connectDB().then(console.log('we have a connection to mongo!'));
@@ -54,7 +54,11 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Authentication
 require('./controller/AuthenticateController');
+
+// nodemailer
+require('./controller/NodemailerController');
 
 // use routes
 app.use('/', pages);
@@ -71,24 +75,28 @@ app.use('/logout', logout);
 // compression using comprssion
 app.use(compression());
 
-// nodemailer
+// nodemailer, contact
 async function mainMail(name, email, subject, message) {
-  const transporter = await nodeMail.createTransport({
-    service: 'gmail',
+  let transporter = await nodemailer.createTransport({
+    service: 'hotmail',
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.PASSWORD,
+      user: process.env.HOTMAIL_USER,
+      pass: process.env.HOTMAIL_PASSWORD,
     },
+    // tls: {
+    //   rejectUnauthorized: false,
+    // },
   });
-  const mailOption = {
-    from: process.env.GMAIL_USER,
-    to: 'han.ossef@gmail.com',
+  let mailOption = {
+    from: process.env.HOTMAIL_USER,
+    to: process.env.HOTMAIL_USER,
     subject: subject,
-    html: `You got a message from
+    html: `You got a message from 
     Email : ${email}
     Name: ${name}
     Message: ${message}`,
   };
+  console.log(mailOption);
   try {
     await transporter.sendMail(mailOption);
     return Promise.resolve('Message Sent Successfully!');
@@ -107,8 +115,9 @@ app.post('/contact', async (req, res, next) => {
   try {
     await mainMail(yourname, youremail, yoursubject, yourmessage);
 
-    res.send('Message Successfully Sent!');
+    res.redirect('/contact');
   } catch (error) {
+    console.log(error);
     res.send('Message Could not be Sent');
   }
 });
