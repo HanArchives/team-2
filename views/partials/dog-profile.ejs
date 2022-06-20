@@ -1,7 +1,7 @@
 <section class="dog-profile">
     <% matches.forEach(function(match) { %>
         <div class="dog-profile__img-container">
-            <img src="/img/dogs/<%= match.image %>" alt="doggo">
+            <img class="lazy" data-src="/img/dogs/<%= match.image %>" alt="doggo">
         </div>
         <div class="dog-profile__content">
             <h2>
