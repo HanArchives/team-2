@@ -3,16 +3,13 @@
 var userCoords = [52.336300948670285, 4.883351168595792];
 var map = L.map('map').setView(userCoords, 13);
 L.tileLayer(
-  'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-  {
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken:
-      'sk.eyJ1Ijoiam9ubmEtdmlzc2VyIiwiYSI6ImNsM2hocG01bjFieHIzZXBya3ZyZGlzdHIifQ.JufH8HEp6qLJANvF9gsg-A',
+    accessToken: 'sk.eyJ1Ijoiam9ubmEtdmlzc2VyIiwiYSI6ImNsM2hocG01bjFieHIzZXBya3ZyZGlzdHIifQ.JufH8HEp6qLJANvF9gsg-A',
   }
 ).addTo(map);
 
@@ -59,8 +56,31 @@ function getUserLocationAndSetMap() {
 window.removeEventListener('load', getUserLocationAndSetMap);
 window.addEventListener('load', getUserLocationAndSetMap);
 
+function onPopupClick(shelter) {
+  window.location.href = `${window.location.origin}/shelter-overview?shelter=${shelter}`;
+}
+
+function onPopupHover(polygon, event) {
+  if (!polygon._popup.isOpen()) {
+    polygon._popup.toggle();
+  }
+  if (event.latlng) {
+    polygon._popup.setLatLng(event.latlng);
+  }
+}
+
+function onPopupOut(polygon) {
+  if (polygon._popup.isOpen()) {
+    polygon._popup.toggle();
+  }
+}
+// kruisje.... poooff :)
+const polygonPopupOptions = {
+  closeButton: false
+};
+
 /****VONDEL****/
-var polygon = L.polygon([
+let pVondel = L.polygon([
   [52.35636188129635, 4.854871821755217],
   [52.360101380791214, 4.8698913052360275],
   [52.35996929922463, 4.870050135716776],
@@ -112,11 +132,19 @@ var polygon = L.polygon([
   [52.354592486499925, 4.855606629173169],
   [52.35640998111026, 4.854812663037852],
 ]).addTo(map);
-polygon.bindPopup('Go to Vondel dog shelter').addEventListener('click', (e) => {
-  window.location.href = `${window.location.origin}/shelter-overview?shelter=Vondel`;
-});
+pVondel
+  .bindPopup('Go to Vondel dog shelter', polygonPopupOptions)
+  .addEventListener('click', (e) => {
+    onPopupClick('Vondel');
+  })
+  .addEventListener('mouseover', (e) => {
+    onPopupHover(pVondel, e);
+  }).addEventListener('mouseout', (e) => {
+    onPopupOut(pVondel);
+  });
+
 /****OOSTER****/
-var polygon = L.polygon([
+let pOoster = L.polygon([
   [52.36053591833311, 4.91589796022504],
   [52.36076507495321, 4.916971571177306],
   [52.360166719056494, 4.917370266506666],
@@ -141,11 +169,19 @@ var polygon = L.polygon([
   [52.3595475008343, 4.916552213106264],
   [52.36053097827726, 4.915903355997164],
 ]).addTo(map);
-polygon.bindPopup('Go to Ooster dog shelter').addEventListener('click', (e) => {
-  window.location.href = `${window.location.origin}/shelter-overview?shelter=Ooster`;
-});
+pOoster
+  .bindPopup('Go to Ooster dog shelter', polygonPopupOptions)
+  .addEventListener('click', (e) => {
+    onPopupClick('Ooster');
+  })
+  .addEventListener('mouseover', (e) => {
+    onPopupHover(pOoster, e);
+  }).addEventListener('mouseout', (e) => {
+    onPopupOut(pOoster);
+  });
+
 /****WESTER****/
-var polygon = L.polygon([
+let pWester = L.polygon([
   [52.388550265219756, 4.847348328843289],
   [52.38866601573259, 4.850071858387191],
   [52.38887899588321, 4.850504285083578],
@@ -184,6 +220,14 @@ var polygon = L.polygon([
   [52.386613725940144, 4.847398216364156],
   [52.38855480582557, 4.847348521891699],
 ]).addTo(map);
-polygon.bindPopup('Go to Wester dog shelter').addEventListener('click', (e) => {
-  window.location.href = `${window.location.origin}/shelter-overview?shelter=Wester`;
-});
+
+pWester
+  .bindPopup('Go to Wester dog shelter', polygonPopupOptions)
+  .addEventListener('click', (e) => {
+    onPopupClick('Wester');
+  })
+  .addEventListener('mouseover', (e) => {
+    onPopupHover(pWester, e);
+  }).addEventListener('mouseout', (e) => {
+    onPopupOut(pWester);
+  });

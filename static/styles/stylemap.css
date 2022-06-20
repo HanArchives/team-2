@@ -303,12 +303,23 @@ path {
   background-color: var(--bg-color-button);
 }
 
+/*******/
+/* MAP */
+/*******/
+#map {
+  height: 850px;
+  margin-right: 20px;
+  margin-left: 20px;
+  max-width: 100%;
+}
+
 /*******************************/
 /* PROGRESSIVE ENHANCEMENT MAP */
 /*******************************/
 .hidden {
   display: none;
 }
+
 ul {
   display: block;
   list-style-type: none;
