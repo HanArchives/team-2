@@ -30,19 +30,6 @@
   --color-h1: #000;
 }
 
-/*************/
-/* DARKMODE  */
-/*************/
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #000;
-    --color-secondary: #fff;
-    --color-menu: #2a2b2b;
-    --bg-color-solid: #00327d;
-    --color-h1: #2596be;
-  }
-}
-
 /****************/
 /* GENERAL CODE */
 /****************/
@@ -52,7 +39,11 @@ body {
 }
 
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
+}
+
+main {
+  text-align: center;
 }
 
 /* CODE FOR HEADER/NAV */
@@ -61,7 +52,7 @@ nav {
   bottom: 0;
   position: fixed;
   left: 0;
-  padding: 1rem;
+  padding: 1em;
   right: 0;
   top: 0;
   transform: translateX(100%);
@@ -74,7 +65,7 @@ nav.is-open {
 }
 
 nav p {
-  padding-bottom: 2rem;
+  padding-bottom: 2em;
 }
 
 nav button {
@@ -82,10 +73,15 @@ nav button {
   color: var(--color-secondary);
   width: fit-content;
 }
+
 .nav-buttons {
   display: none;
 }
 
+.nav-buttons form {
+  margin: 1em;
+  width: fit-content;
+}
 .nav-buttons a {
   background-color: transparent;
   width: fit-content;
@@ -118,41 +114,7 @@ footer {
 }
 
 h1 {
-  animation: layers 3s ease-in, movement 3s ease-in;
-  animation-fill-mode: forwards;
-  color: rgb(253, 212, 196);
-}
-
-@keyframes layers {
-  0% {
-    text-shadow: none;
-  }
-  20% {
-    text-shadow: 3px 3px 0 #29c5f6;
-  }
-  40% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc;
-  }
-  60% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6;
-  }
-  80% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
-      12px 12px 0 #1260cc;
-  }
-  100% {
-    text-shadow: 3px 3px 0 #29c5f6, 6px 6px 0 #3a9bdc, 9px 9px #5579c6,
-      12px 12px 0 #1260cc;
-  }
-}
-
-@keyframes movement {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  100% {
-    transform: translate(-12px, -12px);
-  }
+  color: white;
 }
 
 /**********/
@@ -161,17 +123,22 @@ h1 {
 button {
   background-color: var(--bg-color-button);
   box-shadow: 0px 8px 15px rgba(200, 144, 80, 0.3);
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
   color: var(--color-secondary);
   cursor: pointer;
   font-family: 'spoof', Arial, Helvetica, sans-serif;
-  padding: 1rem;
+  padding: 1em;
   width: 30%;
+  transition: 0.2s;
 }
 
 button:hover {
   background-color: var(--bg-color-button-secondary);
+  transform: translatey(-0.5em);
+  box-shadow: 0 0.5em var(--bg-color-royal-blue);
+
+  cursor: pointer;
 }
 
 button:active,
@@ -183,13 +150,25 @@ button:active {
   box-shadow: inset 2px 2px 2px 2px rgb(154, 89, 40);
 }
 
+.btn-like {
+  margin-bottom: 1em;
+}
+
+/* Choice button */
+.btn-choice {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 a {
   color: white;
   background-color: #012a68;
   border-radius: 16px;
   height: auto;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1em;
+  margin: 1em;
   text-align: center;
   text-decoration: none;
   width: 80%;
@@ -205,7 +184,7 @@ a:hover {
 /********************/
 .pom {
   color: #4169e1;
-  width: 6rem;
+  width: 6em;
   position: absolute;
   bottom: 0%;
   left: 50%;
@@ -218,16 +197,24 @@ path {
   fill: currentColor;
 }
 
+/******************/
+/* update profile */
+/******************/
+.updateProfile {
+  display: none;
+  color: green;
+}
+
 /*********/
 /* Media */
 /*********/
 @media (min-width: 30em) {
   label {
-    padding: 1rem;
+    padding: 1em;
   }
 
   .questionnaire {
-    padding-bottom: 2rem;
+    padding-bottom: 2em;
   }
 
   .form-add-doggo {
@@ -242,7 +229,7 @@ path {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin-top: -4rem;
+    margin-top: -4em;
   }
 
   .nav-buttons-second {
