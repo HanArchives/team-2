@@ -308,20 +308,9 @@ path {
 /*******/
 #map {
   height: 850px;
-  max-width: 100%;
   margin-right: 20px;
   margin-left: 20px;
-}
-
-/*******************************/
-/* MAP */
-/*******************************/
-
-#map {
-  height: 850px;
   max-width: 100%;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 /*******************************/
@@ -330,6 +319,7 @@ path {
 .hidden {
   display: none;
 }
+
 ul {
   display: block;
   list-style-type: none;
