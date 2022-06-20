@@ -1,6 +1,7 @@
 const { ObjectId } = require('mongodb');
 
 const unlike = async (req, res) => {
+  try{
   const sessionData = req.session.passport.user;
   console.log(sessionData);
   const user = await db.collection('users').updateOne(
@@ -15,6 +16,9 @@ const unlike = async (req, res) => {
   );
 
   res.redirect('/likes');
+} catch(err) {
+  console.error('Error loading UnlikeController:' + err.message);
+}
 };
 
 module.exports = {

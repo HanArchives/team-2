@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 let session;
 
 const register = async (req, res) => {
+  try {
   const saltrounds = 10;
   const password = await bcrypt.hash(req.body.password, saltrounds);
 
@@ -26,6 +27,9 @@ const register = async (req, res) => {
   res.redirect('/');
 
   console.log(session);
+} catch(err) {
+  console.error('Error loading AuthorizationController-register:' + err.message);
+}
 };
 
 const login = async (req, res, next) => {

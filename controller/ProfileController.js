@@ -2,6 +2,7 @@
 const { ObjectId } = require('mongodb');
 
 const profile = async (req, res) => {
+  try{
   const sessionData = req.session.passport.user;
   console.log(sessionData);
   const { ObjectId } = require('mongodb');
@@ -11,6 +12,9 @@ const profile = async (req, res) => {
   });
   //   console.log(user);
   res.render('pages/profile', { user });
+} catch(err) {
+  console.error('Error loading ProfileController:' + err.message);
+}
 };
 
 const update = async (req, res) => {
