@@ -57,9 +57,6 @@ app.use(passport.session());
 // Authentication
 require('./controller/AuthenticateController');
 
-// nodemailer
-require('./controller/NodemailerController');
-
 // use routes
 app.use('/', pages);
 app.use('/like', like);
@@ -83,9 +80,6 @@ async function mainMail(name, email, subject, message) {
       user: process.env.HOTMAIL_USER,
       pass: process.env.HOTMAIL_PASSWORD,
     },
-    // tls: {
-    //   rejectUnauthorized: false,
-    // },
   });
   let mailOption = {
     from: process.env.HOTMAIL_USER,
