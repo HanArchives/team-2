@@ -1,7 +1,7 @@
 //////////////////////
 // API random image //
 //////////////////////
-const fallbackImage = document.querySelector('.fallback-image');
+const fallbackImage = document.querySelector('.home-img');
 
 async function fetchImage() {
   const url = 'https://random.dog/woof.json';
