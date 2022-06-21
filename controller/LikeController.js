@@ -2,6 +2,7 @@
 const { ObjectId } = require('mongodb');
 
 const like = async (req, res) => {
+  try{
   const sessionData = req.session.passport.user;
   console.log(sessionData);
   const { ObjectId } = require('mongodb');
@@ -18,6 +19,9 @@ const like = async (req, res) => {
   );
   console.log(user);
   res.redirect('/likes');
+} catch(err) {
+  console.error('Error loading LikeController:' + err.message);
+}
 };
 
 module.exports = {
