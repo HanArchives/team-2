@@ -14,8 +14,8 @@
   --color-secondary: #fff;
   --color-menu: #85cbcc;
   --bg-color-solid: #2596be;
-  --bg-color: linear-gradient(rgb(63, 153, 227), rgba(248, 145, 86, 255));
-  --bg-color-reverse: linear-gradient(rgb(166, 192, 249), rgb(250, 198, 225));
+  --bg-color: linear-gradient(#2ca9d7, #2c6378);
+  --bg-color-reverse: linear-gradient(#b3d1dd, #2ca9d7);
   --bg-color-secondary: linear-gradient(
     rgb(254, 255, 169),
     rgb(81, 160, 154),
@@ -34,7 +34,9 @@
 /* GENERAL CODE */
 /****************/
 body {
-  background-color: var(--bg-color-solid);
+  background-attachment: fixed;
+  background-image: var(--bg-color);
+  background-repeat: no-repeat;
   font-family: 'spoof', Arial, Helvetica, sans-serif;
 }
 
