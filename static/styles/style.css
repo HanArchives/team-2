@@ -556,6 +556,7 @@ a:hover {
 /* home */
 /********/
 .home-img {
+  display: block;
   width: 20%;
 }
 
