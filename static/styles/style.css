@@ -4,6 +4,9 @@
 @font-face {
   font-family: 'spoof';
   src: url(../font/Spoof-Regular.woff);
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
 }
 
 /***********************/
